@@ -5,15 +5,14 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float _walkSpeed = 10.0f;
     [SerializeField] private float _runSpeed = 20.0f;
     [SerializeField] private float _strafeSpeed = 5.0f;
-
-    private Rigidbody _rigidbody;
+    [SerializeField] private Rigidbody _rigidbody;
 
     public void Init()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.freezeRotation = true;
     }
 
-    public void CustomUpdate(float dt)
+    public void CustomFixedUpdate(float dt)
     {
         // get correct speed
         float forwardAndBackSpeed = _walkSpeed;
@@ -30,10 +29,8 @@ public class PlayerMovementController : MonoBehaviour
 
         // apply a force that attempts to reach our target velocity
         Vector3 velocity = _rigidbody.velocity;
-        Vector3 velocityChange = (targetVelocity - velocity);
+        Vector3 velocityChange = targetVelocity - velocity;
         velocityChange.y = 0;
         _rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
-
     }
-
 }

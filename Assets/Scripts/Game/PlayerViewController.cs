@@ -2,8 +2,8 @@
 
 public class PlayerViewController : MonoBehaviour
 {
-    public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
-    public RotationAxes axes = RotationAxes.MouseXAndY;
+    [SerializeField] private Transform _view;
+
     private float sensitivityX = 100.0f;
     private float sensitivityY = 100.0f;
 
@@ -15,35 +15,29 @@ public class PlayerViewController : MonoBehaviour
 
     private float rotationY = 0f;
 
-    private Rigidbody _rigidbody;
+    public Vector3 ViewPosition
+    {
+        get { return _view.position; }
+    }
+
+    public Quaternion ViewRotation
+    {
+        get { return _view.rotation; }
+    }
 
     public void Init()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-        _rigidbody.freezeRotation = true;
+        // TODO:
     }
 
     public void CustomUpdate(float dt)
     {
-        if (axes == RotationAxes.MouseXAndY)
-        {
-            float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX * dt;
+        var rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX * dt;
 
-            rotationY += Input.GetAxis("Mouse Y") * sensitivityY * dt;
-            rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
+        rotationY += Input.GetAxis("Mouse Y") * sensitivityY * dt;
+        rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
 
-            transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
-        }
-        else if (axes == RotationAxes.MouseX)
-        {
-            transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityX * dt, 0);
-        }
-        else
-        {
-            rotationY += Input.GetAxis("Mouse Y") * sensitivityY * dt;
-            rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
-
-            transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
-        }
+        transform.eulerAngles = new Vector3(0f, rotationX, 0f);
+        _view.eulerAngles = new Vector3(-rotationY, rotationX, 0f);
     }
 }
