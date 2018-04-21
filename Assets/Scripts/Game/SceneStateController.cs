@@ -20,6 +20,7 @@ public class SceneStateController : SingletonBehaviour<SceneStateController>
 
     private SlideshowMenu _slideshowMenu;
     private PlayerController _playerController;
+    private CameraController _cameraController;
 
     private bool _nextSceneLoading;
 
@@ -65,6 +66,17 @@ public class SceneStateController : SingletonBehaviour<SceneStateController>
         }
     }
 
+    private void FixedUpdate()
+    {
+        switch (_state)
+        {
+            case State.Main:
+                FixedUpdateMain(Time.fixedDeltaTime);
+
+                break;
+        }
+    }
+
     private void InitSlideshowScene()
     {
         _state = State.Slideshow;
@@ -99,11 +111,21 @@ public class SceneStateController : SingletonBehaviour<SceneStateController>
 
         _playerController = FindObjectOfType<PlayerController>();
         _playerController.Init();
+
+        _cameraController = FindObjectOfType<CameraController>();
+        _cameraController.Init();
     }
 
     private void UpdateMain(float dt)
     {
         _playerController.CustomUpdate(dt);
+        _cameraController.CustomUpdate(dt);
+        // TODO: game script
+    }
+
+    private void FixedUpdateMain(float dt)
+    {
+        _playerController.CustomFixedUpdate(dt);
         // TODO: game script
     }
 }
