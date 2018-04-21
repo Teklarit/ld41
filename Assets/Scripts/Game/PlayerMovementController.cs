@@ -15,7 +15,7 @@ public class PlayerMovementController : MonoBehaviour
     public void CustomFixedUpdate(float dt)
     {
         // get correct speed
-        float forwardAndBackSpeed = _walkSpeed;
+        var forwardAndBackSpeed = _walkSpeed;
 
         // if running, set run speed
         /*if (isRunning)
@@ -24,12 +24,21 @@ public class PlayerMovementController : MonoBehaviour
         }*/
 
         // calculate how fast it should be moving
-        Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal") * _strafeSpeed, 0, Input.GetAxis("Vertical") * forwardAndBackSpeed);
+        var moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+        var maxValue = Mathf.Max(Mathf.Abs(moveDirection.x), Mathf.Abs(moveDirection.z));
+        if (maxValue > 0f)
+        {
+            var maxMoveDirection = moveDirection / maxValue;
+            moveDirection /= maxMoveDirection.magnitude;
+        }
+
+        var targetVelocity = new Vector3(moveDirection.x * _strafeSpeed, 0, moveDirection.z * forwardAndBackSpeed);
         targetVelocity = transform.TransformDirection(targetVelocity);
 
         // apply a force that attempts to reach our target velocity
-        Vector3 velocity = _rigidbody.velocity;
-        Vector3 velocityChange = targetVelocity - velocity;
+        var velocity = _rigidbody.velocity;
+        var velocityChange = targetVelocity - velocity;
         velocityChange.y = 0;
         _rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
     }
