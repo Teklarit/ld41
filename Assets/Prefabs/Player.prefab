@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4495638726944388}
   - component: {fileID: 114349155319049388}
   - component: {fileID: 114505747519224788}
+  - component: {fileID: 114722016165232144}
   - component: {fileID: 54317683571063708}
   - component: {fileID: 136944064585472798}
   m_Layer: 0
@@ -70,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMovementController: {fileID: 114505747519224788}
+  _playerViewController: {fileID: 114722016165232144}
 --- !u!114 &114505747519224788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,6 +86,18 @@ MonoBehaviour:
   _walkSpeed: 10
   _runSpeed: 20
   _strafeSpeed: 5
+--- !u!114 &114722016165232144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1964065950841472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7e96eeec24b8f4d85f2990d20e462e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axes: 0
 --- !u!136 &136944064585472798
 CapsuleCollider:
   m_ObjectHideFlags: 1
