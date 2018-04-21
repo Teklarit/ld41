@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerMovementController _playerMovementController;
     [SerializeField] private PlayerViewController _playerViewController;
+    [SerializeField] private PlayerAnimationController _playerAnimationController;
 
     public Vector3 ViewPosition
     {
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerMovementController.Init();
         _playerViewController.Init();
+        _playerAnimationController.Init();
     }
 
     public void CustomUpdate(float dt)
