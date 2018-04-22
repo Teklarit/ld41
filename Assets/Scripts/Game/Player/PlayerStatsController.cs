@@ -134,7 +134,11 @@ public class PlayerStatsController : MonoBehaviour
     public void CustomUpdate(float dt)
     {
         _fearMultiplier = Mathf.Lerp(_fearMultiplier, _targetFearMultiplier, Mathf.Clamp01(_fearMultiplierLerpCoef * dt));
-        _health -= Mathf.Clamp01(_heartbeatStats[_heartbeatLevel].HealthLoseRate * _fearMultiplier * dt);
-        _brightness -= Mathf.Clamp01(_lightStats[_lightLevel].BrightnessLoseRate * dt);
+
+        _health -= _heartbeatStats[_heartbeatLevel].HealthLoseRate * _fearMultiplier * dt;
+        _health = Mathf.Clamp01(_health);
+
+        _brightness -= _lightStats[_lightLevel].BrightnessLoseRate * dt;
+        _brightness = Mathf.Clamp01(_brightness);
     }
 }
