@@ -7,6 +7,7 @@ public class HudController : MonoBehaviour
     [Space]
     [SerializeField] private Image _health;
     [SerializeField] private Image _heartbeatProgress;
+    [SerializeField] private Image _brightness;
     [SerializeField] private Image _lightProgress;
     [SerializeField] private Text _heartbeatLevel;
     [SerializeField] private Text _lightLevel;
@@ -67,9 +68,10 @@ public class HudController : MonoBehaviour
     {
         _health.fillAmount = _playerStatsController.Health;
         _heartbeatProgress.fillAmount = _playerStatsController.HeartbeatProgress;
+        _brightness.fillAmount = _playerStatsController.Brightness;
         _lightProgress.fillAmount = _playerStatsController.LightProgress;
         _heartbeatLevel.text = "Level " + _playerStatsController.HeartbeatLevel;
-        _lightLevel.text = "Level " + _playerStatsController.LigthtLevel;
+        _lightLevel.text = "Level " + _playerStatsController.LightLevel;
     }
 
     public void CustomUpdate(float dt)

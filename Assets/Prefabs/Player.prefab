@@ -2122,11 +2122,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375afae034f6aa445862cfae7c563438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialHealth: 1
-  _healthLoseRate: 0.1
-  _healthGainPerClick: 0.1
-  _heartbeatClicksTillNextLevel: 100
-  _lightClicksTillNextLevel: 100
+  _heartbeatStats:
+  - MaxHealth: 0.5
+    HealthLoseRate: 0.1
+    HealthGainPerClick: 0.1
+    HeartbeatClicksTillNextLevel: 20
+  - MaxHealth: 0.75
+    HealthLoseRate: 0.075
+    HealthGainPerClick: 0
+    HeartbeatClicksTillNextLevel: 30
+  - MaxHealth: 1
+    HealthLoseRate: 0.05
+    HealthGainPerClick: 0
+    HeartbeatClicksTillNextLevel: 40
+  _lightStats:
+  - MaxBrightness: 0.33
+    BrightnessLoseRate: 0.1
+    BrightnessGainPerClick: 0.05
+    LightClicksTillNextLevel: 100
+  - MaxBrightness: 0.66
+    BrightnessLoseRate: 0.15
+    BrightnessGainPerClick: 0.075
+    LightClicksTillNextLevel: 100
+  - MaxBrightness: 1
+    BrightnessLoseRate: 0.3
+    BrightnessGainPerClick: 0.1
+    LightClicksTillNextLevel: 100
 --- !u!114 &114304071861904958
 MonoBehaviour:
   m_ObjectHideFlags: 1
