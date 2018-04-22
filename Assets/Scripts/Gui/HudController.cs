@@ -20,6 +20,8 @@ public class HudController : MonoBehaviour
     [SerializeField] private Image _secondHeartbeatBegin;
     [SerializeField] private Image _secondHeartbeatEnd;
     [Space]
+    [SerializeField] private AnimationCurve _heartVisibilityCurve;
+    [Space]
     [SerializeField] private float _deathSequenceDuration;
     [SerializeField] private Image _deathScreen;
     [SerializeField] private AnimationCurve _deathScreenVisibilityCurve;
@@ -52,6 +54,7 @@ public class HudController : MonoBehaviour
 
         _heartSourcePosition = _firstHeart.rectTransform.localPosition;
         _heartTargetPosition = _secondHeart.rectTransform.localPosition;
+        _secondHeart.gameObject.SetActive(false);
 
         Refresh(0f);
     }
@@ -110,6 +113,10 @@ public class HudController : MonoBehaviour
         var passedPart = _playerStatsController.HeartbeatSequencePassedPart;
         var firstHeartPosition = Vector3.Lerp(_heartSourcePosition, _heartTargetPosition, passedPart);
         _firstHeart.rectTransform.localPosition = firstHeartPosition;
+
+        var firstHeartColor = _firstHeart.color;
+        firstHeartColor.a = _heartVisibilityCurve.Evaluate(passedPart);
+        _firstHeart.color = firstHeartColor;
     }
 
     public void CustomUpdate(float dt)
