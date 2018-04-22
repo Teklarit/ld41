@@ -19,7 +19,7 @@ public class DoorController : MonoBehaviour
 	
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        /*if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SetDoorTarget(true, ET_DOOR_SPEED.SLOW);
             GetComponent<DoorHandleController>().SetShakeSeconds(20.0f);
@@ -28,7 +28,7 @@ public class DoorController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha3)) { SetDoorTarget(true, ET_DOOR_SPEED.FAST); }
         if (Input.GetKeyDown(KeyCode.Alpha4)) { SetDoorTarget(false, ET_DOOR_SPEED.FAST); }
-
+        */
         if (_doorChangeProcess < 1.0f)
         {
             float dt = Time.deltaTime;
