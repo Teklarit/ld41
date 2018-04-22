@@ -7,6 +7,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerStatsController _playerStatsController;
     [SerializeField] private PlayerAnimationController _playerAnimationController;
     [Space]
+    [SerializeField] private Light _flashlightSpotlight;
+    [SerializeField] private float _flashlightSpotlightMaxIntensity;
+    [SerializeField] private AnimationCurve _flashlightSpotlightCurve;
+    [Space]
+    [SerializeField] private Light _flashlightPointlight;
+    [SerializeField] private float _flashlightPointightMaxIntensity;
+    [SerializeField] private AnimationCurve _flashlightPointlightCurve;
+    [Space]
     [SerializeField] private float _deathSequenceDuration;
     [SerializeField] private float _winSequenceDuration;
 
@@ -92,6 +100,12 @@ public class PlayerController : MonoBehaviour
 
                 _playerViewController.CustomUpdate(dt);
                 _playerStatsController.CustomUpdate(dt);
+
+                var flashlightIntensity = _flashlightSpotlightCurve.Evaluate(_playerStatsController.Brightness);
+                _flashlightSpotlight.intensity = flashlightIntensity * _flashlightSpotlightMaxIntensity;
+
+                var flashlightSpotlightIntensity = _flashlightPointlightCurve.Evaluate(_playerStatsController.Brightness);
+                _flashlightPointlight.intensity = flashlightSpotlightIntensity * _flashlightPointightMaxIntensity;
 
                 break;
             case State.DeathSequence:
