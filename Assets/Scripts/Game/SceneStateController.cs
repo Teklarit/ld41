@@ -19,8 +19,7 @@ public class SceneStateController : SingletonBehaviour<SceneStateController>
     private State _state;
 
     private SlideshowMenu _slideshowMenu;
-    private PlayerController _playerController;
-    private CameraController _cameraController;
+    private MainSceneController _mainSceneController;
 
     private bool _nextSceneLoading;
 
@@ -77,6 +76,17 @@ public class SceneStateController : SingletonBehaviour<SceneStateController>
         }
     }
 
+    private void LateUpdate()
+    {
+        switch (_state)
+        {
+            case State.Main:
+                LateUpdateMain(Time.deltaTime);
+
+                break;
+        }
+    }
+
     private void InitSlideshowScene()
     {
         _state = State.Slideshow;
@@ -109,23 +119,22 @@ public class SceneStateController : SingletonBehaviour<SceneStateController>
 
         SceneLoadHandler.Instance.FindFadeModel();
 
-        _playerController = FindObjectOfType<PlayerController>();
-        _playerController.Init();
-
-        _cameraController = FindObjectOfType<CameraController>();
-        _cameraController.Init();
+        _mainSceneController = FindObjectOfType<MainSceneController>();
+        _mainSceneController.Init();
     }
 
     private void UpdateMain(float dt)
     {
-        _playerController.CustomUpdate(dt);
-        _cameraController.CustomUpdate(dt);
-        // TODO: game script
+        _mainSceneController.CustomUpdate(dt);
     }
 
     private void FixedUpdateMain(float dt)
     {
-        _playerController.CustomFixedUpdate(dt);
-        // TODO: game script
+        _mainSceneController.CustomFixedUpdate(dt);
+    }
+
+    private void LateUpdateMain(float dt)
+    {
+        _mainSceneController.CustomLateUpdate(dt);
     }
 }

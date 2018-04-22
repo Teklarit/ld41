@@ -3,7 +3,7 @@
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Camera _mainCamera;
-    [SerializeField] private PlayerController _playerController;
+    [SerializeField] private PlayerViewController _playerViewController;
 
     public void Init()
     {
@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
 
     public void CustomUpdate(float dt)
     {
-        _mainCamera.transform.position = _playerController.ViewPosition;
-        _mainCamera.transform.rotation = _playerController.ViewRotation;
+        _mainCamera.transform.position = _playerViewController.ViewPosition;
+        _mainCamera.transform.rotation = _playerViewController.ViewRotation;
     }
 }

@@ -2122,8 +2122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375afae034f6aa445862cfae7c563438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _initialHealth: 1
   _healthLoseRate: 0.1
   _healthGainPerClick: 0.1
+  _heartbeatClicksTillNextLevel: 100
+  _lightClicksTillNextLevel: 100
 --- !u!114 &114304071861904958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2149,6 +2152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMovementController: {fileID: 114916874955254208}
   _playerViewController: {fileID: 114304071861904958}
+  _playerStatsController: {fileID: 114086085572350840}
   _playerAnimationController: {fileID: 114567436201317256}
 --- !u!114 &114567436201317256
 MonoBehaviour:
