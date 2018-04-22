@@ -348,8 +348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 195534939}
   _playerViewController: {fileID: 1440108579}
-  _deathSequenceDuration: 2
-  _winSequenceDuration: 2
+  _deathSequenceDuration: 3
+  _winSequenceDuration: 3
 --- !u!114 &195534936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1578,11 +1578,11 @@ MonoBehaviour:
   _playerStatsController: {fileID: 1440108578}
   _health: {fileID: 1887471997}
   _heartbeatProgress: {fileID: 1766312033}
-  _brightness: {fileID: 0}
+  _brightness: {fileID: 1021691479}
   _lightProgress: {fileID: 1800863791}
   _heartbeatLevel: {fileID: 682783968}
   _lightLevel: {fileID: 819884238}
-  _deathSequenceDuration: 2
+  _deathSequenceDuration: 3
   _deathScreen: {fileID: 965794967}
   _deathScreenVisibilityCurve:
     serializedVersion: 2
@@ -1602,7 +1602,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  _winSequenceDuration: 2
+  _winSequenceDuration: 3
   _winScreen: {fileID: 1412479934}
   _winScreenVisibilityCurve:
     serializedVersion: 2

@@ -2122,31 +2122,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375afae034f6aa445862cfae7c563438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _god: 0
   _heartbeatStats:
   - MaxHealth: 0.5
-    HealthLoseRate: 0.1
+    HealthLoseRate: 0.2
     HealthGainPerClick: 0.1
     HeartbeatClicksTillNextLevel: 20
   - MaxHealth: 0.75
-    HealthLoseRate: 0.075
-    HealthGainPerClick: 0
+    HealthLoseRate: 0.12
+    HealthGainPerClick: 0.1
     HeartbeatClicksTillNextLevel: 30
   - MaxHealth: 1
-    HealthLoseRate: 0.05
-    HealthGainPerClick: 0
+    HealthLoseRate: 0.06
+    HealthGainPerClick: 0.1
     HeartbeatClicksTillNextLevel: 40
   _lightStats:
-  - MaxBrightness: 0.33
-    BrightnessLoseRate: 0.1
-    BrightnessGainPerClick: 0.05
+  - MaxBrightness: 0.5
+    BrightnessLoseRate: 0.25
+    BrightnessGainPerClick: 0.1
     LightClicksTillNextLevel: 100
-  - MaxBrightness: 0.66
-    BrightnessLoseRate: 0.15
-    BrightnessGainPerClick: 0.075
+  - MaxBrightness: 0.75
+    BrightnessLoseRate: 0.425
+    BrightnessGainPerClick: 0.2
     LightClicksTillNextLevel: 100
   - MaxBrightness: 1
-    BrightnessLoseRate: 0.3
-    BrightnessGainPerClick: 0.1
+    BrightnessLoseRate: 0.6
+    BrightnessGainPerClick: 0.3
     LightClicksTillNextLevel: 100
 --- !u!114 &114304071861904958
 MonoBehaviour:
@@ -2175,8 +2176,8 @@ MonoBehaviour:
   _playerViewController: {fileID: 114304071861904958}
   _playerStatsController: {fileID: 114086085572350840}
   _playerAnimationController: {fileID: 114567436201317256}
-  _deathSequenceDuration: 2
-  _winSequenceDuration: 2
+  _deathSequenceDuration: 3
+  _winSequenceDuration: 3
 --- !u!114 &114567436201317256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2201,7 +2202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _walkSpeed: 4
-  _runSpeed: 20
+  _runSpeed: 6
   _strafeSpeed: 2
   _rigidbody: {fileID: 54617227965467842}
 --- !u!136 &136837201667671394

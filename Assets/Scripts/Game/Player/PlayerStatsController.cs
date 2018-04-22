@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerStatsController : MonoBehaviour
 {
+    [SerializeField] private bool _god;
+
     [Serializable] private struct HeartbeatStats
     {
         public float MaxHealth;
@@ -79,7 +81,7 @@ public class PlayerStatsController : MonoBehaviour
 
     public bool IsDead
     {
-        get { return _health <= 0f; }
+        get { return _health <= 0f && !_god; }
     }
 
     public float Health
