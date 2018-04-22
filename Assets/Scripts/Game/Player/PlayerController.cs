@@ -69,21 +69,25 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     _playerStatsController.AddHeartbeatClick();
-                    _playerAnimationController.SetState(PlayerAnimationController.Hand.Left, PlayerAnimationController.State.EnemaSqueezed);
+                    _playerAnimationController.SetHandState(PlayerAnimationController.Hand.Left, PlayerAnimationController.HandState.EnemaSqueezed);
+                    _playerAnimationController.SetEnemaState(PlayerAnimationController.EnemaState.Squeezed);
                 }
                 else
                 {
-                    _playerAnimationController.SetState(PlayerAnimationController.Hand.Left, PlayerAnimationController.State.EnemaIdle);
+                    _playerAnimationController.SetHandState(PlayerAnimationController.Hand.Left, PlayerAnimationController.HandState.EnemaIdle);
+                    _playerAnimationController.SetEnemaState(PlayerAnimationController.EnemaState.Idle);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     _playerStatsController.AddLighterClick();
-                    _playerAnimationController.SetState(PlayerAnimationController.Hand.Right, PlayerAnimationController.State.FlashlightSqueezed);
+                    _playerAnimationController.SetHandState(PlayerAnimationController.Hand.Right, PlayerAnimationController.HandState.FlashlightSqueezed);
+                    _playerAnimationController.SetFlashlightState(PlayerAnimationController.FlashlightState.Squeezed);
                 }
                 else
                 {
-                    _playerAnimationController.SetState(PlayerAnimationController.Hand.Right, PlayerAnimationController.State.FlashlightIdle);
+                    _playerAnimationController.SetHandState(PlayerAnimationController.Hand.Right, PlayerAnimationController.HandState.FlashlightIdle);
+                    _playerAnimationController.SetFlashlightState(PlayerAnimationController.FlashlightState.Idle);
                 }
 
                 _playerViewController.CustomUpdate(dt);

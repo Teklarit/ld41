@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour
 {
-    [SerializeField] private Animator _animator;
+    [SerializeField] private Animator _playerAnimator;
+    [SerializeField] private Animator _enemaAnimator;
+    [SerializeField] private Animator _flashlightAnimator;
 
-    public enum State
+    public enum HandState
     {
         EmptyIdle,
         EnemaIdle,
@@ -25,46 +27,105 @@ public class PlayerAnimationController : MonoBehaviour
         Count
     }
 
-    private Dictionary<Hand, Dictionary<State, int>> _animatorIds;
-    private Dictionary<Hand, State> _states;
+    public enum EnemaState
+    {
+        Idle,
+        Squeezed,
+
+        Count
+    }
+
+    public enum FlashlightState
+    {
+        Idle,
+        Squeezed,
+
+        Count
+    }
+
+    private Dictionary<Hand, Dictionary<HandState, int>> _handsAnimatorIds;
+    private Dictionary<Hand, HandState> _handsStates;
+
+    private Dictionary<EnemaState, int> _enemaAnimatorIds;
+    private Dictionary<FlashlightState, int> _flashlightAnimatorIds;
 
     public void Init()
     {
-        _animatorIds = new Dictionary<Hand, Dictionary<State, int>>();
+        _handsAnimatorIds = new Dictionary<Hand, Dictionary<HandState, int>>();
         for (var i = 0; i < (int)Hand.Count; i++)
         {
-            var handIds = new Dictionary<State, int>();
-            for (var j = 0; j < (int)State.Count; j++)
+            var handIds = new Dictionary<HandState, int>();
+            for (var j = 0; j < (int)HandState.Count; j++)
             {
                 var handName = Enum.GetName(typeof(Hand), (Hand)i);
-                var stateName = Enum.GetName(typeof(State), (State)j);
-                handIds.Add((State)j, Animator.StringToHash(handName + stateName));
+                var stateName = Enum.GetName(typeof(HandState), (HandState)j);
+                handIds.Add((HandState)j, Animator.StringToHash(handName + stateName));
             }
-            _animatorIds.Add((Hand)i, handIds);
+            _handsAnimatorIds.Add((Hand)i, handIds);
         }
 
-        _states = new Dictionary<Hand, State>();
+        _handsStates = new Dictionary<Hand, HandState>();
         for (var i = 0; i < (int)Hand.Count; i++)
         {
-            _states[(Hand)i] = State.EmptyIdle;
+            _handsStates[(Hand)i] = HandState.EmptyIdle;
+        }
+
+        _enemaAnimatorIds = new Dictionary<EnemaState, int>();
+        for (var j = 0; j < (int)EnemaState.Count; j++)
+        {
+            var stateName = Enum.GetName(typeof(EnemaState), (EnemaState)j);
+            _enemaAnimatorIds.Add((EnemaState)j, Animator.StringToHash(stateName));
+        }
+
+        _flashlightAnimatorIds = new Dictionary<FlashlightState, int>();
+        for (var j = 0; j < (int)FlashlightState.Count; j++)
+        {
+            var stateName = Enum.GetName(typeof(FlashlightState), (FlashlightState)j);
+            _flashlightAnimatorIds.Add((FlashlightState)j, Animator.StringToHash(stateName));
         }
     }
 
-    public void SetState(Hand hand, State state)
+    public void SetHandState(Hand hand, HandState handState)
     {
-        _states[hand] = state;
-        for (var i = 0; i < (int)State.Count; i++)
+        _handsStates[hand] = handState;
+        for (var i = 0; i < (int)HandState.Count; i++)
         {
-            if ((State)i != state)
+            if ((HandState)i != handState)
             {
-                _animator.SetBool(_animatorIds[hand][(State)i], false);
+                _playerAnimator.SetBool(_handsAnimatorIds[hand][(HandState)i], false);
             }
         }
-        _animator.SetBool(_animatorIds[hand][state], true);
+        _playerAnimator.SetBool(_handsAnimatorIds[hand][handState], true);
     }
 
-    public State GetState(Hand hand)
+    public HandState GetHandState(Hand hand)
     {
-        return _states[hand];
+        return _handsStates[hand];
+    }
+
+    public void SetEnemaState(EnemaState state)
+    {
+        for (var i = 0; i < (int)EnemaState.Count; i++)
+        {
+            if ((EnemaState)i != state)
+            {
+                _enemaAnimator.SetBool(_enemaAnimatorIds[(EnemaState)i], false);
+            }
+        }
+
+        _enemaAnimator.SetBool(_enemaAnimatorIds[state], true);
+    }
+
+    public void SetFlashlightState(FlashlightState state)
+    {
+        for (var i = 0; i < (int)FlashlightState.Count; i++)
+        {
+            if ((FlashlightState)i != state)
+            {
+                _flashlightAnimator.SetBool(_flashlightAnimatorIds[(FlashlightState)i], false);
+            }
+        }
+
+        _flashlightAnimator.SetBool(_flashlightAnimatorIds[state], true);
     }
 }

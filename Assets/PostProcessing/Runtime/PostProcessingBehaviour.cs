@@ -344,7 +344,7 @@ namespace UnityEngine.PostProcessing
             m_EyeAdaptation.ResetHistory();
         }
 
-        #region State management
+        #region HandState management
 
         List<PostProcessingComponentBase> m_ComponentsToEnable = new List<PostProcessingComponentBase>();
         List<PostProcessingComponentBase> m_ComponentsToDisable = new List<PostProcessingComponentBase>();
