@@ -27,6 +27,9 @@ public class SceneStateController : SingletonBehaviour<SceneStateController>
     {
         SceneLoadHandler.Instance.Init();
 
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         _state = State.PreLoad;
         LoadSlideshowAsync(0f, 1f, null, InitSlideshowScene);
     }
