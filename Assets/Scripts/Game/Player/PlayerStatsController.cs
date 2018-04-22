@@ -25,6 +25,11 @@ public class PlayerStatsController : MonoBehaviour
     [SerializeField] private LightStats[] _lightStats;
 
     [Space]
+    [SerializeField] private float _heartbeatsSequenceDuration;
+    [SerializeField] private float _firstHeartbeatBeginTime;
+    [SerializeField] private float _firstHeartbeatEndTime;
+    [SerializeField] private float _secondHeartbeatBeginTime;
+    [SerializeField] private float _secondHeartbeatEndTime;
     [SerializeField] private float _fearMultiplierLerpCoef;
 
     private float _health;
@@ -37,6 +42,11 @@ public class PlayerStatsController : MonoBehaviour
     private int _lighterClickedTotal;
     private int _heartbeatLevel;
     private int _lightLevel;
+
+    private float _heartbeatTimePassed;
+    private float _heartbeatSequencePassedPart;
+    private bool _heartbeatClickAvailable;
+    private bool _heartbeatClickPerformed;
 
     public void Init()
     {
@@ -52,6 +62,11 @@ public class PlayerStatsController : MonoBehaviour
         _lighterClickedThisLevel = 0;
         _heartbeatClickedTotal = 0;
         _lighterClickedTotal = 0;
+
+        _heartbeatTimePassed = 0f;
+        _heartbeatSequencePassedPart = 0f;
+        _heartbeatClickAvailable = false;
+        _heartbeatClickPerformed = false;
     }
 
     public void AddHeartbeatClick()
@@ -121,6 +136,36 @@ public class PlayerStatsController : MonoBehaviour
         get { return _brightness; }
     }
 
+    public bool HeartbeatClickAvailable
+    {
+        get { return _heartbeatClickAvailable; }
+    }
+
+    public float HeartbeatSequencePassedPart
+    {
+        get { return _heartbeatSequencePassedPart; }
+    }
+
+    public float FirstHeartbeatBeginPart
+    {
+        get { return _firstHeartbeatBeginTime / _heartbeatsSequenceDuration; }
+    }
+
+    public float FirstHeartbeatEndPart
+    {
+        get { return _firstHeartbeatEndTime / _heartbeatsSequenceDuration; }
+    }
+
+    public float SecondHeartbeatBeginPart
+    {
+        get { return _secondHeartbeatBeginTime / _heartbeatsSequenceDuration; }
+    }
+
+    public float SecondHeartbeatEndPart
+    {
+        get { return _secondHeartbeatEndTime / _heartbeatsSequenceDuration; }
+    }
+
     public void SetFearMultiplier(float fearMultiplier)
     {
         _targetFearMultiplier = fearMultiplier;
@@ -128,12 +173,36 @@ public class PlayerStatsController : MonoBehaviour
 
     private bool HeartbeatOnTime()
     {
-        return true;
+        if (_heartbeatClickAvailable && !_heartbeatClickPerformed)
+        {
+            _heartbeatClickPerformed = true;
+            return true;
+        }
+
+        return false;
     }
 
     public void CustomUpdate(float dt)
     {
         _fearMultiplier = Mathf.Lerp(_fearMultiplier, _targetFearMultiplier, Mathf.Clamp01(_fearMultiplierLerpCoef * dt));
+
+        _heartbeatTimePassed += _fearMultiplier * dt;
+        _heartbeatSequencePassedPart = Mathf.Clamp01(_heartbeatTimePassed / _heartbeatsSequenceDuration);
+
+        _heartbeatClickAvailable = (_heartbeatSequencePassedPart >= FirstHeartbeatBeginPart &&
+                                    _heartbeatSequencePassedPart <= FirstHeartbeatEndPart) ||
+                                    (_heartbeatSequencePassedPart >= SecondHeartbeatBeginPart &&
+                                     _heartbeatSequencePassedPart <= SecondHeartbeatEndPart);
+
+        if (!_heartbeatClickAvailable)
+        {
+            _heartbeatClickPerformed = false;
+        }
+       
+        if (_heartbeatTimePassed >= _heartbeatsSequenceDuration)
+        {
+            _heartbeatTimePassed -= _heartbeatsSequenceDuration;
+        }
 
         _health -= _heartbeatStats[_heartbeatLevel].HealthLoseRate * _fearMultiplier * dt;
         _health = Mathf.Clamp01(_health);
