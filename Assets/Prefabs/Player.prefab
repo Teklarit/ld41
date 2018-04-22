@@ -2122,20 +2122,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375afae034f6aa445862cfae7c563438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _god: 0
+  _god: 1
   _heartbeatStats:
   - MaxHealth: 0.5
-    HealthLoseRate: 0.2
+    HealthLoseRate: 0.05
     HealthGainPerClick: 0.1
-    HeartbeatClicksTillNextLevel: 20
+    HeartbeatClicksTillNextLevel: 60
   - MaxHealth: 0.75
     HealthLoseRate: 0.12
     HealthGainPerClick: 0.1
-    HeartbeatClicksTillNextLevel: 30
+    HeartbeatClicksTillNextLevel: 100
   - MaxHealth: 1
     HealthLoseRate: 0.06
     HealthGainPerClick: 0.1
-    HeartbeatClicksTillNextLevel: 40
+    HeartbeatClicksTillNextLevel: 140
   _lightStats:
   - MaxBrightness: 0.5
     BrightnessLoseRate: 0.25
