@@ -24,8 +24,13 @@ public class PlayerStatsController : MonoBehaviour
     [SerializeField] private HeartbeatStats[] _heartbeatStats;
     [SerializeField] private LightStats[] _lightStats;
 
+    [Space]
+    [SerializeField] private float _fearMultiplierLerpCoef;
+
     private float _health;
     private float _brightness;
+    private float _fearMultiplier;
+    private float _targetFearMultiplier;
     private int _heartbeatClickedThisLevel;
     private int _lighterClickedThisLevel;
     private int _heartbeatClickedTotal;
@@ -40,6 +45,8 @@ public class PlayerStatsController : MonoBehaviour
 
         _health = _heartbeatStats[_heartbeatLevel].MaxHealth;
         _brightness = 0f;
+        _fearMultiplier = 1f;
+        _targetFearMultiplier = 1f;
 
         _heartbeatClickedThisLevel = 0;
         _lighterClickedThisLevel = 0;
@@ -114,6 +121,11 @@ public class PlayerStatsController : MonoBehaviour
         get { return _brightness; }
     }
 
+    public void SetFearMultiplier(float fearMultiplier)
+    {
+        _targetFearMultiplier = fearMultiplier;
+    }
+
     private bool HeartbeatOnTime()
     {
         return true;
@@ -121,7 +133,8 @@ public class PlayerStatsController : MonoBehaviour
 
     public void CustomUpdate(float dt)
     {
-        _health -= Mathf.Clamp01(_heartbeatStats[_heartbeatLevel].HealthLoseRate * dt);
+        _fearMultiplier = Mathf.Lerp(_fearMultiplier, _targetFearMultiplier, Mathf.Clamp01(_fearMultiplierLerpCoef * dt));
+        _health -= Mathf.Clamp01(_heartbeatStats[_heartbeatLevel].HealthLoseRate * _fearMultiplier * dt);
         _brightness -= Mathf.Clamp01(_lightStats[_lightLevel].BrightnessLoseRate * dt);
     }
 }

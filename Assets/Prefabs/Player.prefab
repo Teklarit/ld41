@@ -2149,6 +2149,7 @@ MonoBehaviour:
     BrightnessLoseRate: 0.6
     BrightnessGainPerClick: 0.3
     LightClicksTillNextLevel: 100
+  _fearMultiplierLerpCoef: 20
 --- !u!114 &114304071861904958
 MonoBehaviour:
   m_ObjectHideFlags: 1
