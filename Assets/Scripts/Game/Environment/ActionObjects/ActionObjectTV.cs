@@ -10,4 +10,11 @@ public class ActionObjectTV : ActionObject
 
         _screen.SetActive(true);
     }
+
+    public override void Deactivate()
+    {
+        base.Deactivate();
+
+        _screen.SetActive(false);
+    }
 }
