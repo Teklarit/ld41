@@ -12,6 +12,8 @@ public class ActionObjectActivator : MonoBehaviour
     [Space]
     [SerializeField] private ET_ACTIVATE_COUNT _activate_count = ET_ACTIVATE_COUNT.ONCE;
     [SerializeField] private int _activate_N_count = 1;
+    [Space]
+    [SerializeField] private bool _inverseActivation = false;
 
     private int _wasActivations = 0;
 
@@ -29,7 +31,10 @@ public class ActionObjectActivator : MonoBehaviour
             )
         {
             ++_wasActivations;
-            _actionObject.Activate(_activate_type, _timeToWork);
+            if (_inverseActivation)
+                _actionObject.Deactivate();
+            else
+                _actionObject.Activate(_activate_type, _timeToWork);
         }
     }
 }
