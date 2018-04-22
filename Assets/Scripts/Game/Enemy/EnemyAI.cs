@@ -1,28 +1,38 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
-    public enum ET_ENEMY_STATE { IDLE, PATROL, MOVE_TO_NOISE, MOVE_TO_PLAYER }
+    public enum ET_ENEMY_AI_STATE { IDLE, PATROL, MOVE_TO_NOISE, MOVE_TO_PLAYER }
 
-    [SerializeField] private ET_ENEMY_STATE _enemyState = ET_ENEMY_STATE.IDLE;
+    [SerializeField]
+    private ET_ENEMY_AI_STATE _enemyState = ET_ENEMY_AI_STATE.IDLE;
     [Space]
-    [SerializeField] private float _patrolDestinationAcceptDistance = 1.0f;
-    [SerializeField] private float _NoiseSensitivityDistance = 10.0f;
-    [SerializeField] private float _PlayerSensitivityDistance = 5.0f;
+    [SerializeField]
+    private float _patrolDestinationAcceptDistance = 1.0f;
+    [SerializeField]
+    private float _NoiseSensitivityDistance = 10.0f;
+    [SerializeField]
+    private float _PlayerSensitivityDistance = 5.0f;
     [Space]
-    [SerializeField] private Transform[] _patrolTransforms;
+    [SerializeField]
+    private Transform[] _patrolTransforms;
     private int _targetPatrolIndex = 0;
 
     private NavMeshAgent _navMeshAgent;
     private Vector3 _lastPlayerVisiblePosition;
 
-    void Start ()
+    public void DisableNavMeshAgent()
+    {
+        _navMeshAgent.enabled = false;
+    }
+
+    void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
 
         SetFirstPatrolDestination();
-	}
+    }
 
     private void OnEnable()
     {
@@ -34,14 +44,14 @@ public class EnemyController : MonoBehaviour
         EnemiesController.OnClickLighterAction -= PlayerClick;
     }
 
-    void Update ()
+    void Update()
     {
         UpdateMovement();
-	}
+    }
 
     private void PlayerClick(Vector3 position)
     {
-        if (_enemyState == ET_ENEMY_STATE.MOVE_TO_PLAYER)
+        if (_enemyState == ET_ENEMY_AI_STATE.MOVE_TO_PLAYER)
             return;
 
         NavMeshPath path = new NavMeshPath();
@@ -52,7 +62,7 @@ public class EnemyController : MonoBehaviour
         float distance = GetPathDistance(path);
         if (distance <= _NoiseSensitivityDistance)
         {
-            SetDestination(position, ET_ENEMY_STATE.MOVE_TO_NOISE);
+            SetDestination(position, ET_ENEMY_AI_STATE.MOVE_TO_NOISE);
             return;
         }
     }
@@ -80,7 +90,7 @@ public class EnemyController : MonoBehaviour
 
     private bool TryMoveToLastPlayerSeePosition()
     {
-        if (_enemyState == ET_ENEMY_STATE.MOVE_TO_PLAYER 
+        if (_enemyState == ET_ENEMY_AI_STATE.MOVE_TO_PLAYER
             && _navMeshAgent.remainingDistance >= _patrolDestinationAcceptDistance)
         {
             return true;
@@ -103,16 +113,16 @@ public class EnemyController : MonoBehaviour
         if (distance <= _PlayerSensitivityDistance)
         {
             _lastPlayerVisiblePosition = player.transform.position;
-            SetDestination(_lastPlayerVisiblePosition, ET_ENEMY_STATE.MOVE_TO_PLAYER);
+            SetDestination(_lastPlayerVisiblePosition, ET_ENEMY_AI_STATE.MOVE_TO_PLAYER);
             return true;
         }
-            
+
         return false;
     }
 
     private bool TryMoveToNisePosition()
     {
-        if (_enemyState == ET_ENEMY_STATE.MOVE_TO_NOISE
+        if (_enemyState == ET_ENEMY_AI_STATE.MOVE_TO_NOISE
             && _navMeshAgent.remainingDistance >= _patrolDestinationAcceptDistance)
         {
             return true;
@@ -126,7 +136,7 @@ public class EnemyController : MonoBehaviour
             return;
 
         _targetPatrolIndex = 0;
-        SetDestination(_patrolTransforms[_targetPatrolIndex].position, ET_ENEMY_STATE.PATROL);
+        SetDestination(_patrolTransforms[_targetPatrolIndex].position, ET_ENEMY_AI_STATE.PATROL);
     }
 
     private void UpdatePatrolDestination()
@@ -136,19 +146,19 @@ public class EnemyController : MonoBehaviour
             Debug.LogWarning("Give me more patrol Transforms!");
             return;
         }
-            
 
-        if (_enemyState != ET_ENEMY_STATE.PATROL)
-            SetDestination(_patrolTransforms[_targetPatrolIndex].position, ET_ENEMY_STATE.PATROL);
-        
+
+        if (_enemyState != ET_ENEMY_AI_STATE.PATROL)
+            SetDestination(_patrolTransforms[_targetPatrolIndex].position, ET_ENEMY_AI_STATE.PATROL);
+
         if (_navMeshAgent.remainingDistance <= _patrolDestinationAcceptDistance)
         {
             _targetPatrolIndex = (_targetPatrolIndex + 1) % _patrolTransforms.Length;
-            SetDestination(_patrolTransforms[_targetPatrolIndex].position, ET_ENEMY_STATE.PATROL);
+            SetDestination(_patrolTransforms[_targetPatrolIndex].position, ET_ENEMY_AI_STATE.PATROL);
         }
     }
 
-    private void SetDestination(Vector3 destination, ET_ENEMY_STATE newEnemyState)
+    private void SetDestination(Vector3 destination, ET_ENEMY_AI_STATE newEnemyState)
     {
         _navMeshAgent.destination = destination;
         _enemyState = newEnemyState;
