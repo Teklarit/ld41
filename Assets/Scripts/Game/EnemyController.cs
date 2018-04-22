@@ -23,11 +23,39 @@ public class EnemyController : MonoBehaviour
 
         SetFirstPatrolDestination();
 	}
-	
-	void Update ()
+
+    private void OnEnable()
+    {
+        EnemiesController.OnClickLighterAction += PlayerClick;
+    }
+
+    private void OnDisable()
+    {
+        EnemiesController.OnClickLighterAction -= PlayerClick;
+    }
+
+    void Update ()
     {
         UpdateMovement();
 	}
+
+    private void PlayerClick(Vector3 position)
+    {
+        if (_enemyState == ET_ENEMY_STATE.MOVE_TO_PLAYER)
+            return;
+
+        NavMeshPath path = new NavMeshPath();
+        _navMeshAgent.CalculatePath(position, path);
+        if (path.status == NavMeshPathStatus.PathInvalid)
+            return;
+
+        float distance = GetPathDistance(path);
+        if (distance <= _NoiseSensitivityDistance)
+        {
+            SetDestination(position, ET_ENEMY_STATE.MOVE_TO_NOISE);
+            return;
+        }
+    }
 
     // STOP ON HIT!
     private void OnCollisionEnter(Collision collision)
@@ -45,6 +73,7 @@ public class EnemyController : MonoBehaviour
     {
         if (TryMoveToPlayer()) return;
         if (TryMoveToLastPlayerSeePosition()) return;
+        if (TryMoveToNisePosition()) return;
 
         UpdatePatrolDestination();
     }
@@ -78,6 +107,16 @@ public class EnemyController : MonoBehaviour
             return true;
         }
             
+        return false;
+    }
+
+    private bool TryMoveToNisePosition()
+    {
+        if (_enemyState == ET_ENEMY_STATE.MOVE_TO_NOISE
+            && _navMeshAgent.remainingDistance >= _patrolDestinationAcceptDistance)
+        {
+            return true;
+        }
         return false;
     }
 

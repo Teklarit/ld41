@@ -11,12 +11,14 @@ public class EnemiesController : MonoBehaviour
             OnClickLighterAction(position);
     }
 
-    private void Update()
+    // Test click
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Update click!");
-            ClickLight(gameObject.transform.position);
+            Vector3 playerPosition = FindObjectOfType<PlayerController>().transform.position;
+            ClickLight(playerPosition);
         }
-    }
+    }*/
 }
