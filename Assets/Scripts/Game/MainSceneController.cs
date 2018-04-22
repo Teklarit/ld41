@@ -6,6 +6,13 @@ public class MainSceneController : MonoBehaviour
     [SerializeField] private CameraController _cameraController;
     [SerializeField] private HudController _hudController;
 
+    private bool _needReload;
+
+    public bool NeedReload
+    {
+        get { return _needReload; }
+    }
+
     public void Init()
     {
         _playerController = FindObjectOfType<PlayerController>();
@@ -16,6 +23,8 @@ public class MainSceneController : MonoBehaviour
 
         _hudController = FindObjectOfType<HudController>();
         _hudController.Init();
+
+        _needReload = false;
     }
 
     public void CustomUpdate(float dt)

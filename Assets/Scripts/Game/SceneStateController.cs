@@ -135,6 +135,15 @@ public class SceneStateController : SingletonBehaviour<SceneStateController>
 
     private void LateUpdateMain(float dt)
     {
-        _mainSceneController.CustomLateUpdate(dt);
+        if (!_mainSceneController.NeedReload)
+        {
+            _mainSceneController.CustomLateUpdate(dt);
+        }
+
+        if (_mainSceneController.NeedReload && !_nextSceneLoading)
+        {
+            LoadMainAsync(1f, 1f, null, InitMainScene);
+            _nextSceneLoading = true;
+        }
     }
 }
