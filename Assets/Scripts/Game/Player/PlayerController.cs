@@ -69,11 +69,21 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     _playerStatsController.AddHeartbeatClick();
+                    _playerAnimationController.SetState(PlayerAnimationController.Hand.Left, PlayerAnimationController.State.EnemaSqueezed);
+                }
+                else
+                {
+                    _playerAnimationController.SetState(PlayerAnimationController.Hand.Left, PlayerAnimationController.State.EnemaIdle);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     _playerStatsController.AddLighterClick();
+                    _playerAnimationController.SetState(PlayerAnimationController.Hand.Right, PlayerAnimationController.State.FlashlightSqueezed);
+                }
+                else
+                {
+                    _playerAnimationController.SetState(PlayerAnimationController.Hand.Right, PlayerAnimationController.State.FlashlightIdle);
                 }
 
                 _playerViewController.CustomUpdate(dt);
