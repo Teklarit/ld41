@@ -12,6 +12,14 @@ public class HudController : MonoBehaviour
     [SerializeField] private Text _heartbeatLevel;
     [SerializeField] private Text _lightLevel;
     [Space]
+    [SerializeField] private Image _firstHeart;
+    [SerializeField] private Image _firstHeartbeatBegin;
+    [SerializeField] private Image _firstHeartbeatEnd;
+    [Space]
+    [SerializeField] private Image _secondHeart;
+    [SerializeField] private Image _secondHeartbeatBegin;
+    [SerializeField] private Image _secondHeartbeatEnd;
+    [Space]
     [SerializeField] private float _deathSequenceDuration;
     [SerializeField] private Image _deathScreen;
     [SerializeField] private AnimationCurve _deathScreenVisibilityCurve;
@@ -31,6 +39,9 @@ public class HudController : MonoBehaviour
     private State _state;
     private float _timePassed;
 
+    private Vector3 _heartSourcePosition;
+    private Vector3 _heartTargetPosition;
+
     public void Init()
     {
         _state = State.Game;
@@ -39,7 +50,10 @@ public class HudController : MonoBehaviour
         _deathScreen.gameObject.SetActive(false);
         _winScreen.gameObject.SetActive(false);
 
-        Refresh();
+        _heartSourcePosition = _firstHeart.rectTransform.localPosition;
+        _heartTargetPosition = _secondHeart.rectTransform.localPosition;
+
+        Refresh(0f);
     }
 
     public void LaunchDeathSequence()
@@ -64,7 +78,7 @@ public class HudController : MonoBehaviour
         get { return _timePassed >= _winSequenceDuration; }
     }
 
-    private void Refresh()
+    private void Refresh(float dt)
     {
         _health.fillAmount = _playerStatsController.Health;
         _heartbeatProgress.fillAmount = _playerStatsController.HeartbeatProgress;
@@ -72,6 +86,30 @@ public class HudController : MonoBehaviour
         _lightProgress.fillAmount = _playerStatsController.LightProgress;
         _heartbeatLevel.text = "Level " + _playerStatsController.HeartbeatLevel;
         _lightLevel.text = "Level " + _playerStatsController.LightLevel;
+
+        UpdateHearts(dt);
+    }
+
+    private void UpdateHearts(float dt)
+    {
+        var firstHeartbeatBeginPart = _playerStatsController.FirstHeartbeatBeginPart;
+        var firstHeartbeatEndPart = _playerStatsController.FirstHeartbeatEndPart;
+        var secondHeartbeatBeginPart = _playerStatsController.SecondHeartbeatBeginPart;
+        var secondHeartbeatEndPart = _playerStatsController.SecondHeartbeatEndPart;
+
+        var firstHeartbeatBeginPosition = Vector3.Lerp(_heartSourcePosition, _heartTargetPosition, firstHeartbeatBeginPart);
+        var firstHeartbeatEndPosition = Vector3.Lerp(_heartSourcePosition, _heartTargetPosition, firstHeartbeatEndPart);
+        var secondHeartbeatBeginPosition = Vector3.Lerp(_heartSourcePosition, _heartTargetPosition, secondHeartbeatBeginPart);
+        var secondHeartbeatEndPosition = Vector3.Lerp(_heartSourcePosition, _heartTargetPosition, secondHeartbeatEndPart);
+
+        _firstHeartbeatBegin.rectTransform.localPosition = firstHeartbeatBeginPosition;
+        _firstHeartbeatEnd.rectTransform.localPosition = firstHeartbeatEndPosition;
+        _secondHeartbeatBegin.rectTransform.localPosition = secondHeartbeatBeginPosition;
+        _secondHeartbeatEnd.rectTransform.localPosition = secondHeartbeatEndPosition;
+
+        var passedPart = _playerStatsController.HeartbeatSequencePassedPart;
+        var firstHeartPosition = Vector3.Lerp(_heartSourcePosition, _heartTargetPosition, passedPart);
+        _firstHeart.rectTransform.localPosition = firstHeartPosition;
     }
 
     public void CustomUpdate(float dt)
@@ -79,7 +117,7 @@ public class HudController : MonoBehaviour
         switch (_state)
         {
             case State.Game:
-                Refresh();
+                Refresh(dt);
 
                 break;
             case State.DeathSequence:

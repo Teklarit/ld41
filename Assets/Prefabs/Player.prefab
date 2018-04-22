@@ -2149,6 +2149,11 @@ MonoBehaviour:
     BrightnessLoseRate: 0.6
     BrightnessGainPerClick: 0.3
     LightClicksTillNextLevel: 100
+  _heartbeatsSequenceDuration: 1.5
+  _firstHeartbeatBeginTime: 0.5
+  _firstHeartbeatEndTime: 0.75
+  _secondHeartbeatBeginTime: 1
+  _secondHeartbeatEndTime: 1.25
   _fearMultiplierLerpCoef: 20
 --- !u!114 &114304071861904958
 MonoBehaviour:

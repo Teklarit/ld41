@@ -24,7 +24,10 @@ public class PlayerMovementController : MonoBehaviour
         }*/
 
         // calculate how fast it should be moving
-        var moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        var sideMovement = Input.GetAxis("Horizontal");
+        var forwardMovement = Input.GetAxis("Vertical");
+        //var moveDirection = new Vector3(Mathf.Sign(sideMovement) * Mathf.Sqrt(Mathf.Abs(sideMovement)), 0, Mathf.Sign(forwardMovement) * Mathf.Sqrt(Mathf.Abs(forwardMovement)));
+        var moveDirection = new Vector3(sideMovement, 0, forwardMovement);
 
         var maxValue = Mathf.Max(Mathf.Abs(moveDirection.x), Mathf.Abs(moveDirection.z));
         if (maxValue > 0f)
