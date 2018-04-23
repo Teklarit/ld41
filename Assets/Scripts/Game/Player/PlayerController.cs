@@ -108,6 +108,8 @@ public class PlayerController : MonoBehaviour
         switch (_state)
         {
             case State.Idle:
+                _playerStatsController.ResetClicks();
+
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     _playerStatsController.AddHeartbeatClick();

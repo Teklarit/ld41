@@ -60,8 +60,8 @@ public class PlayerStatsController : MonoBehaviour
     private bool _firstHeartbeatSoundPlayed;
     private bool _secondHeartbeatSoundPlayed;
 
-    private int _healthClicksLastFrame;
-    private int _lightClicksLastFrame;
+    private bool _healthClickedLastFrame;
+    private bool _lightClickedLastFrame;
 
     public void Init()
     {
@@ -86,15 +86,15 @@ public class PlayerStatsController : MonoBehaviour
         _firstHeartbeatSoundPlayed = false;
         _secondHeartbeatSoundPlayed = false;
 
-        _healthClicksLastFrame = 0;
-        _lightClicksLastFrame = 0;
+        _healthClickedLastFrame = false;
+        _lightClickedLastFrame = false;
     }
 
     public void AddHeartbeatClick()
     {
         ++_heartbeatClickedThisLevel;
         ++_heartbeatClickedTotal;
-        _health += _heartbeatStats[_heartbeatLevel].HealthGainPerClick * (HeartbeatOnTime() ? 1 : -1);
+        _health += _heartbeatStats[_heartbeatLevel].HealthGainPerClick * (HeartbeatOnTime() ? 1f : -0.5f);
         _health = Mathf.Min(_health, _heartbeatStats[_heartbeatLevel].MaxHealth);
 
         var clicksTillNextLevel = _heartbeatStats[_heartbeatLevel].HeartbeatClicksTillNextLevel;
@@ -104,6 +104,7 @@ public class PlayerStatsController : MonoBehaviour
         }
 
         _audioSource.PlayOneShot(_enemaSqueezeAudioClip);
+        _healthClickedLastFrame = true;
     }
 
     public void AddLighterClick()
@@ -120,16 +121,17 @@ public class PlayerStatsController : MonoBehaviour
         }
 
         _audioSource.PlayOneShot(_flashlightSqueezeAudioClip);
+        _lightClickedLastFrame = true;
     }
 
-    public int HealthClicksLastFrame
+    public bool HealthClickedLastFrame
     {
-        get { return _healthClicksLastFrame; }
+        get { return _healthClickedLastFrame; }
     }
 
-    public int LightClicksLastFrame
+    public bool LightClickedLastFrame
     {
-        get { return _lightClicksLastFrame; }
+        get { return _lightClickedLastFrame; }
     }
 
     public bool IsDead
@@ -216,12 +218,18 @@ public class PlayerStatsController : MonoBehaviour
         return false;
     }
 
+    public void ResetClicks()
+    {
+        _healthClickedLastFrame = false;
+        _lightClickedLastFrame = false;
+    }
+
     public void CustomUpdate(float dt)
     {
         _fearMultiplier = Mathf.Lerp(_fearMultiplier, _targetFearMultiplier, Mathf.Clamp01(_fearMultiplierLerpCoef * dt));
 
         _targetFearMultiplier -= _fearLossRate * dt;
-        _targetFearMultiplier = Mathf.Min(_targetFearMultiplier, 1f);
+        _targetFearMultiplier = Mathf.Max(_targetFearMultiplier, 1f);
 
         _heartbeatTimePassed += _fearMultiplier * dt;
         _heartbeatSequencePassedPart = Mathf.Clamp01(_heartbeatTimePassed / _heartbeatsSequenceDuration);

@@ -90,7 +90,34 @@ public class HudController : MonoBehaviour
         _firstHeartInitialSizeDelta = _firstHeart.rectTransform.sizeDelta;
 
         _healthClicksData = new ClickData[_healthClicks.Length];
-        _lightClicksData = new ClickData[_healthClicks.Length];
+        _lightClicksData = new ClickData[_lightClicks.Length];
+
+        _healthClickInitialPosition = _healthClickInitial.transform.localPosition;
+        _healthClickInitialRotation = _healthClickInitial.transform.localRotation;
+
+        _lightClickInitialPosition = _lightClickInitial.transform.localPosition;
+        _lightClickInitialRotation = _lightClickInitial.transform.localRotation;
+
+        _healthClickTargetPositions = new Vector3[_healthClicks.Length];
+        _healthClickTargetRotations = new Quaternion[_healthClicks.Length];
+        for (var i = 0; i < _healthClicks.Length; i++)
+        {
+            _healthClickTargetPositions[i] = _healthClicks[i].rectTransform.localPosition;
+            _healthClickTargetRotations[i] = _healthClicks[i].rectTransform.localRotation;
+            _healthClicks[i].gameObject.SetActive(false);
+        }
+
+        _lightClickTargetPositions = new Vector3[_lightClicks.Length];
+        _lightClickTargetRotations = new Quaternion[_lightClicks.Length];
+        for (var i = 0; i < _lightClicks.Length; i++)
+        {
+            _lightClickTargetPositions[i] = _lightClicks[i].rectTransform.localPosition;
+            _lightClickTargetRotations[i] = _lightClicks[i].rectTransform.localRotation;
+            _lightClicks[i].gameObject.SetActive(false);
+        }
+
+        _healthClickInitial.gameObject.SetActive(false);
+        _lightClickInitial.gameObject.SetActive(false);
 
         Refresh(0f);
     }
@@ -127,8 +154,10 @@ public class HudController : MonoBehaviour
         _lightLevel.text = "Level " + _playerStatsController.LightLevel;
 
         UpdateHearts(dt);
+        AddClicks(_healthClicks, _healthClicksData, _playerStatsController.HealthClickedLastFrame);
+        AddClicks(_lightClicks, _lightClicksData, _playerStatsController.LightClickedLastFrame);
         UpdateClicks(_healthClicksData, _healthClicks, _healthClickInitialPosition, _healthClickTargetPositions, _healthClickInitialRotation, _healthClickTargetRotations, dt);
-        UpdateClicks(_lightClicksData, _healthClicks, _lightClickInitialPosition, _lightClickTargetPositions, _healthClickInitialRotation, _lightClickTargetRotations, dt);
+        UpdateClicks(_lightClicksData, _lightClicks, _lightClickInitialPosition, _lightClickTargetPositions, _healthClickInitialRotation, _lightClickTargetRotations, dt);
     }
 
     private void UpdateHearts(float dt)
@@ -175,6 +204,25 @@ public class HudController : MonoBehaviour
         var firstHeartColor = _firstHeart.color;
         firstHeartColor.a = _heartVisibilityCurve.Evaluate(passedPart);
         _firstHeart.color = firstHeartColor;
+    }
+
+    private void AddClicks(Image[] images, ClickData[] clickData, bool clicked)
+    {
+        if (clicked)
+        {
+            for (var i = 0; i < clickData.Length; i++)
+            {
+                if (!clickData[i].Busy)
+                {
+                    clickData[i].TimePassed = 0f;
+                    clickData[i].ImageId = i;
+                    clickData[i].Busy = true;
+                    images[clickData[i].ImageId].gameObject.SetActive(true);
+
+                    break;
+                }
+            }
+        }
     }
 
     private void UpdateClicks(ClickData[] clicksData, Image[] images, Vector3 initialPosition, Vector3[] targetPositions,
