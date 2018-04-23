@@ -2076,8 +2076,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1353998575269916}
-  m_LocalRotation: {x: -0.040106107, y: 0.0015269066, z: -0.13100885, w: 0.99056846}
-  m_LocalPosition: {x: -0, y: 0.11858443, z: 0}
+  m_LocalRotation: {x: -0.04010616, y: 0.0015267429, z: -0.131009, w: 0.9905685}
+  m_LocalPosition: {x: 0, y: 0.118584365, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4279520570051596}
@@ -2199,8 +2199,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1671316835813204}
-  m_LocalRotation: {x: -0.025443316, y: -0.0011581299, z: 0.077436306, w: 0.9966719}
-  m_LocalPosition: {x: 3.5527136e-17, y: 0.11754231, z: 2.842171e-16}
+  m_LocalRotation: {x: -0.02544354, y: -0.001158178, z: 0.0774361, w: 0.9966719}
+  m_LocalPosition: {x: 0, y: 0.11754219, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4664345989543964}
@@ -2385,8 +2385,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413352139078174}
-  m_LocalRotation: {x: -0.49405298, y: 0.6081319, z: -0.5105826, w: -0.35410827}
-  m_LocalPosition: {x: -0.054324046, y: 0.09450266, z: 0.0089545585}
+  m_LocalRotation: {x: -0.49405292, y: 0.60813195, z: -0.5105827, w: -0.3541083}
+  m_LocalPosition: {x: -0.054324165, y: 0.09450269, z: 0.008954552}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4563099807704760}
@@ -2523,7 +2523,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1635773309442386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.818, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4700947008410538}
@@ -2783,7 +2783,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.2
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -2820,8 +2820,8 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
-  m_Range: 20
-  m_SpotAngle: 120
+  m_Range: 10
+  m_SpotAngle: 100
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -2871,17 +2871,17 @@ MonoBehaviour:
     HealthGainPerClick: 0.1
     HeartbeatClicksTillNextLevel: 140
   _lightStats:
-  - MaxBrightness: 0.5
-    BrightnessLoseRate: 0.5
-    BrightnessGainPerClick: 0.12
-    LightClicksTillNextLevel: 100
-  - MaxBrightness: 0.75
-    BrightnessLoseRate: 0.65
-    BrightnessGainPerClick: 0.15
-    LightClicksTillNextLevel: 100
-  - MaxBrightness: 1
+  - MaxBrightness: 0.7
     BrightnessLoseRate: 0.8
     BrightnessGainPerClick: 0.2
+    LightClicksTillNextLevel: 100
+  - MaxBrightness: 0.85
+    BrightnessLoseRate: 1
+    BrightnessGainPerClick: 0.25
+    LightClicksTillNextLevel: 100
+  - MaxBrightness: 1
+    BrightnessLoseRate: 1.2
+    BrightnessGainPerClick: 0.3
     LightClicksTillNextLevel: 100
   _heartbeatsSequenceDuration: 1.5
   _firstHeartbeatBeginTime: 0.5
@@ -2917,7 +2917,7 @@ MonoBehaviour:
   _playerStatsController: {fileID: 114086085572350840}
   _playerAnimationController: {fileID: 114567436201317256}
   _flashlightSpotlight: {fileID: 108910726805026636}
-  _flashlightSpotlightMaxIntensity: 2
+  _flashlightSpotlightMaxIntensity: 1.8
   _flashlightSpotlightCurve:
     serializedVersion: 2
     m_Curve:
@@ -2937,15 +2937,15 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   _flashlightPointlight: {fileID: 108822301884171640}
-  _flashlightPointightMaxIntensity: 0.3
+  _flashlightPointightMaxIntensity: 0.45
   _flashlightPointlightCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
     - serializedVersion: 2
       time: 1
@@ -2956,6 +2956,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  _leftShoulderView: {fileID: 4950622319000950}
+  _rightShoulderView: {fileID: 4014257574988510}
+  _leftShoulder: {fileID: 4740610887102696}
+  _rightShoulder: {fileID: 4134594664380084}
+  _shoulderRotationDuration: 0.1
+  _shoulderRotationMinValue: 0.015
+  _shoulderRotationMaxValue: 0.04
+  _shoulderSideMovementSpeedMult: 2
+  _shoulderMovementLerpCoef: 5
   _deathSequenceDuration: 3
   _winSequenceDuration: 3
 --- !u!114 &114567436201317256

@@ -17,6 +17,13 @@ public class PlayerController : MonoBehaviour
     [Space]
     [SerializeField] private Transform _leftShoulderView;
     [SerializeField] private Transform _rightShoulderView;
+    [SerializeField] private Transform _leftShoulder;
+    [SerializeField] private Transform _rightShoulder;
+    [SerializeField] private float _shoulderRotationDuration;
+    [SerializeField] private float _shoulderRotationMinValue;
+    [SerializeField] private float _shoulderRotationMaxValue;
+    [SerializeField] private float _shoulderSideMovementSpeedMult;
+    [SerializeField] private float _shoulderMovementLerpCoef;
     [Space]
     [SerializeField] private float _deathSequenceDuration;
     [SerializeField] private float _winSequenceDuration;
@@ -31,6 +38,14 @@ public class PlayerController : MonoBehaviour
     private State _state;
     private float _timePassed;
 
+    private Quaternion _leftShoulderInitialRotation;
+    private Quaternion _rightShoulderInitialRotation;
+    private Quaternion _leftShoulderViewInitialRotation;
+    private Quaternion _rightShoulderViewInitialRotation;
+    private Vector3 _leftShoulderForward;
+    private Vector3 _rightShoulderForward;
+    private float _shoulderRotationTimePassed;
+
     public void Init()
     {
         _playerMovementController.Init();
@@ -40,6 +55,11 @@ public class PlayerController : MonoBehaviour
 
         _timePassed = 0f;
         _state = State.Idle;
+
+        _leftShoulderInitialRotation = _leftShoulder.localRotation;
+        _rightShoulderInitialRotation = _rightShoulder.localRotation;
+        _leftShoulderViewInitialRotation = _leftShoulderView.localRotation;
+        _rightShoulderViewInitialRotation = _rightShoulderView.localRotation;
     }
 
     public bool PlayerDied
@@ -104,7 +124,6 @@ public class PlayerController : MonoBehaviour
                 _playerViewController.CustomUpdate(dt);
                 _playerStatsController.CustomUpdate(dt);
 
-                UpdateShouldersMovement(dt);
                 UpdateFlashlight();
 
                 break;
@@ -130,6 +149,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void CustomLateUpdate(float dt)
+    {
+        switch (_state)
+        {
+            case State.Idle:
+                UpdateShouldersMovement(dt);
+
+                break;
+        }
+    }
+
     private void UpdateFlashlight()
     {
         var flashlightIntensity = _flashlightSpotlightCurve.Evaluate(_playerStatsController.Brightness);
@@ -141,6 +171,39 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateShouldersMovement(float dt)
     {
+        var localMovementDirection = _playerMovementController.LocalMoveDirection;
+        var movementSpeedMult = _playerMovementController.SpeedPart;
 
+        var forwardMovementMult = Mathf.Lerp(_shoulderRotationMinValue, _shoulderRotationMaxValue, Mathf.Abs(localMovementDirection.z) * movementSpeedMult);
+        var sideMovementMult = Mathf.Lerp(_shoulderRotationMinValue, _shoulderRotationMaxValue, Mathf.Abs(localMovementDirection.x) * movementSpeedMult);
+
+        var clampedSpeedMult = Mathf.Lerp(_shoulderRotationMinValue, _shoulderRotationMaxValue, _playerMovementController.SpeedPart);
+        _shoulderRotationTimePassed += clampedSpeedMult * dt;
+        var passedPart = Mathf.Clamp01(_shoulderRotationTimePassed / _shoulderRotationDuration);
+
+        var angle = passedPart * 2f * Mathf.PI;
+        var leftShoulderForwardOffset = Mathf.Sin(angle);
+        var rightShoulderForwardOffset = Mathf.Sin(angle + Mathf.PI);
+        var leftShoulderSideOffset = Mathf.Sin(angle * _shoulderSideMovementSpeedMult);
+        var rightShoulderSideOffset = Mathf.Sin(angle * _shoulderSideMovementSpeedMult + Mathf.PI);
+
+        var leftShoulderForward = new Vector3(leftShoulderSideOffset * sideMovementMult, leftShoulderForwardOffset * forwardMovementMult, 1f).normalized;
+        var rightShoulderForward = new Vector3(rightShoulderSideOffset * sideMovementMult, rightShoulderForwardOffset * forwardMovementMult, 1f).normalized;
+
+        _leftShoulderForward = Vector3.Lerp(_leftShoulderForward, leftShoulderForward, Mathf.Clamp01(_shoulderMovementLerpCoef * dt));
+        _rightShoulderForward = Vector3.Lerp(_rightShoulderForward, rightShoulderForward, Mathf.Clamp01(_shoulderMovementLerpCoef * dt));
+
+        var leftShoulderAdditionalRotation = Quaternion.LookRotation(_leftShoulderForward);
+        var rightShoulderAdditionalRotation = Quaternion.LookRotation(_rightShoulderForward);
+
+        _leftShoulder.localRotation = leftShoulderAdditionalRotation * _leftShoulderInitialRotation;
+        _rightShoulder.localRotation = rightShoulderAdditionalRotation * _rightShoulderInitialRotation;
+        _leftShoulderView.localRotation = leftShoulderAdditionalRotation * _leftShoulderViewInitialRotation;
+        _rightShoulderView.localRotation = rightShoulderAdditionalRotation * _rightShoulderViewInitialRotation;
+
+        if (_shoulderRotationTimePassed >= _shoulderRotationDuration)
+        {
+            _shoulderRotationTimePassed -= _shoulderRotationDuration;
+        }
     }
 }

@@ -130,6 +130,7 @@ public class MainSceneController : MonoBehaviour
 
     private bool OnIdleLateUpdate(float dt)
     {
+        _playerController.CustomLateUpdate(dt);
         _hudController.CustomUpdate(dt);
         _cameraController.CustomUpdate(dt);
 

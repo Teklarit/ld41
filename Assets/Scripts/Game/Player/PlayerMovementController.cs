@@ -7,9 +7,22 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float _strafeSpeed = 5.0f;
     [SerializeField] private Rigidbody _rigidbody;
 
+    private Vector3 _lastMoveDirection;
+
     public void Init()
     {
         _rigidbody.freezeRotation = true;
+        _lastMoveDirection = Vector3.zero;
+    }
+
+    public float SpeedPart
+    {
+        get { return Mathf.Clamp01(_rigidbody.velocity.magnitude / Mathf.Max(_walkSpeed, _strafeSpeed)); }
+    }
+
+    public Vector3 LocalMoveDirection
+    {
+        get { return _lastMoveDirection; }
     }
 
     public void CustomFixedUpdate(float dt)
@@ -35,6 +48,8 @@ public class PlayerMovementController : MonoBehaviour
             var maxMoveDirection = moveDirection / maxValue;
             moveDirection /= maxMoveDirection.magnitude;
         }
+
+        _lastMoveDirection = moveDirection;
 
         var targetVelocity = new Vector3(moveDirection.x * _strafeSpeed, 0, moveDirection.z * forwardAndBackSpeed);
         targetVelocity = transform.TransformDirection(targetVelocity);
