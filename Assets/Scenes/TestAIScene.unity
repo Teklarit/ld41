@@ -172,7 +172,19 @@ Prefab:
       propertyPath: _ai
       value: 
       objectReference: {fileID: 1165248292}
-    m_RemovedComponents: []
+    - target: {fileID: 114849398135630606, guid: 0677022b8b99d1347b3f00cc6c5367a6,
+        type: 2}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 2055464277}
+    - target: {fileID: 114849398135630606, guid: 0677022b8b99d1347b3f00cc6c5367a6,
+        type: 2}
+      propertyPath: _monsterRenderer
+      value: 
+      objectReference: {fileID: 1174563177}
+    m_RemovedComponents:
+    - {fileID: 23022352914404986, guid: 0677022b8b99d1347b3f00cc6c5367a6, type: 2}
+    - {fileID: 33285560247612028, guid: 0677022b8b99d1347b3f00cc6c5367a6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0677022b8b99d1347b3f00cc6c5367a6, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &69208795
@@ -534,6 +546,48 @@ Transform:
   m_PrefabParentObject: {fileID: 4700638456291036, guid: 0677022b8b99d1347b3f00cc6c5367a6,
     type: 2}
   m_PrefabInternal: {fileID: 8158366}
+--- !u!1001 &461319039
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 406096132}
+    m_Modifications:
+    - target: {fileID: 4465488163405650, guid: debfb5c4b5e02da43913ccaf15c33465, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465488163405650, guid: debfb5c4b5e02da43913ccaf15c33465, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465488163405650, guid: debfb5c4b5e02da43913ccaf15c33465, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465488163405650, guid: debfb5c4b5e02da43913ccaf15c33465, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465488163405650, guid: debfb5c4b5e02da43913ccaf15c33465, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465488163405650, guid: debfb5c4b5e02da43913ccaf15c33465, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465488163405650, guid: debfb5c4b5e02da43913ccaf15c33465, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465488163405650, guid: debfb5c4b5e02da43913ccaf15c33465, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: debfb5c4b5e02da43913ccaf15c33465, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &624420187
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +775,11 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 8158366}
   m_Script: {fileID: 11500000, guid: ee6c56eb24ad74e4ea363f3688e8f0d8, type: 3}
+--- !u!137 &1174563177 stripped
+SkinnedMeshRenderer:
+  m_PrefabParentObject: {fileID: 137610637692353640, guid: debfb5c4b5e02da43913ccaf15c33465,
+    type: 2}
+  m_PrefabInternal: {fileID: 461319039}
 --- !u!1 &1299587211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,10 +1327,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867285f2a2514aa489d7b7f17b8c82a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _autoClick: 0
+  _autoClickDuration: 0
   _playerMovementController: {fileID: 0}
   _playerViewController: {fileID: 0}
   _playerStatsController: {fileID: 0}
   _playerAnimationController: {fileID: 0}
+  _flashlightSpotlight: {fileID: 0}
+  _flashlightSpotlightMaxIntensity: 0
+  _flashlightSpotlightCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _flashlightPointlight: {fileID: 0}
+  _flashlightPointightMaxIntensity: 0
+  _flashlightPointlightCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _leftShoulderView: {fileID: 0}
+  _rightShoulderView: {fileID: 0}
+  _leftShoulder: {fileID: 0}
+  _rightShoulder: {fileID: 0}
+  _shoulderRotationDuration: 0
+  _shoulderRotationMinValue: 0
+  _shoulderRotationMaxValue: 0
+  _shoulderSideMovementSpeedMult: 0
+  _shoulderMovementLerpCoef: 0
+  _deathSequenceDuration: 0
+  _winSequenceDuration: 0
+--- !u!95 &2055464277 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95087232136643354, guid: debfb5c4b5e02da43913ccaf15c33465,
+    type: 2}
+  m_PrefabInternal: {fileID: 461319039}
 --- !u!1 &2143537414
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,18 +5,14 @@ public class EnemyAI : MonoBehaviour
 {
     public enum ET_ENEMY_AI_STATE { IDLE, PATROL, MOVE_TO_NOISE, MOVE_TO_PLAYER }
 
-    [SerializeField]
-    private ET_ENEMY_AI_STATE _enemyState = ET_ENEMY_AI_STATE.IDLE;
+    [SerializeField] private ET_ENEMY_AI_STATE _enemyState = ET_ENEMY_AI_STATE.IDLE;
     [Space]
-    [SerializeField]
-    private float _patrolDestinationAcceptDistance = 1.0f;
-    [SerializeField]
-    private float _NoiseSensitivityDistance = 10.0f;
-    [SerializeField]
-    private float _PlayerSensitivityDistance = 5.0f;
+    [SerializeField] private float _patrolDestinationAcceptDistance = 1.0f;
+    [SerializeField] private float _NoiseSensitivityDistance = 10.0f;
+    [SerializeField] private float _PlayerSensitivityDistance = 5.0f;
     [Space]
-    [SerializeField]
-    private Transform[] _patrolTransforms;
+    [SerializeField] private Transform[] _patrolTransforms;
+
     private int _targetPatrolIndex = 0;
 
     private NavMeshAgent _navMeshAgent;
@@ -26,6 +22,8 @@ public class EnemyAI : MonoBehaviour
     {
         _navMeshAgent.enabled = false;
     }
+
+    public ET_ENEMY_AI_STATE GetEnemyState() { return _enemyState; }
 
     void Start()
     {
