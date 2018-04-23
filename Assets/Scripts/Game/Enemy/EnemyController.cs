@@ -24,11 +24,6 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Damage(200);
-        }
-
         UpdatePostDeathMaterial();
         CheckAttackState();
         CheckPostDeathLifespan();
@@ -84,8 +79,6 @@ public class EnemyController : MonoBehaviour
     {
         if (_health <= 0)
         {
-            //_animator.SetTrigger("Death");
-
             _isAlive = false;
             _ai.DisableNavMeshAgent();
             _ai.enabled = false;
