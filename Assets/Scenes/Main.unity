@@ -2197,11 +2197,6 @@ Prefab:
     m_Modifications:
     - target: {fileID: 224855554163820070, guid: e88e1621f8261ba4eb89636d2e904967,
         type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224855554163820070, guid: e88e1621f8261ba4eb89636d2e904967,
-        type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2290,16 +2285,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 223425769291551670, guid: e88e1621f8261ba4eb89636d2e904967,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 195534939}
     - target: {fileID: 114819441364611756, guid: e88e1621f8261ba4eb89636d2e904967,
         type: 2}
       propertyPath: _playerStatsController
       value: 
       objectReference: {fileID: 1440108578}
+    - target: {fileID: 223425769291551670, guid: e88e1621f8261ba4eb89636d2e904967,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 195534939}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e88e1621f8261ba4eb89636d2e904967, type: 2}
   m_IsPrefabParent: 0
