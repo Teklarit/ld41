@@ -12,8 +12,6 @@ public class ActionObjectSimpleRotation : ActionObject
     [Space]
     [SerializeField] private AnimationCurve _animationCurve;
 
-
-
     private float _rotationProcess = 2.0f; // >= 1.0f on start
     private Vector3 _prevLocalEulerAngles;
 
@@ -30,7 +28,6 @@ public class ActionObjectSimpleRotation : ActionObject
 
         _audioSource.clip = _audioClip;
         _audioSource.Play();
-
     }
 
     private void Update()
