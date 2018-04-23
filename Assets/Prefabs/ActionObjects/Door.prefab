@@ -716,8 +716,8 @@ MonoBehaviour:
   _audioSource: {fileID: 82254766007371514}
   _audioClipSlowOpen: {fileID: 8300000, guid: 41a2cae6260faa34eb477fc5bc470698, type: 3}
   _audioClipSlowClose: {fileID: 8300000, guid: 41a2cae6260faa34eb477fc5bc470698, type: 3}
-  _audioClipFastOpen: {fileID: 8300000, guid: 41a2cae6260faa34eb477fc5bc470698, type: 3}
-  _audioClipFastClose: {fileID: 8300000, guid: 41a2cae6260faa34eb477fc5bc470698, type: 3}
+  _audioClipFastOpen: {fileID: 8300000, guid: 2b7fe5f3c9c942942826da0890b5146d, type: 3}
+  _audioClipFastClose: {fileID: 8300000, guid: 2b7fe5f3c9c942942826da0890b5146d, type: 3}
 --- !u!114 &114726048819225568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -729,6 +729,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99deac6e567a9f14c85e5a61dc3538d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fearDistance: 10
+  _fearPower: 1
   _doorHandleController: {fileID: 114297594389464782}
   _overrideShakeTime: 7
 --- !u!114 &114844009898749926
@@ -742,3 +744,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c703af2ec9c7d94fb9634d05fa43782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fearDistance: 10
+  _fearPower: 1
