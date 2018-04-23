@@ -23,6 +23,15 @@ public class HudController : MonoBehaviour
     [SerializeField] private AnimationCurve _heartVisibilityCurve;
     [SerializeField] private float _heartSizeMult;
     [Space]
+    [SerializeField] private Image[] _healthClicks;
+    [SerializeField] private Image _healthClickInitial;
+    [SerializeField] private Image[] _lightClicks;
+    [SerializeField] private Image _lightClickInitial;
+    [SerializeField] private float _clickMovementDuration;
+    [SerializeField] private AnimationCurve _clickMovementCurve;
+    [SerializeField] private AnimationCurve _clickVisibilityCurve;
+
+    [Space]
     [SerializeField] private float _deathSequenceDuration;
     [SerializeField] private Image _deathScreen;
     [SerializeField] private AnimationCurve _deathScreenVisibilityCurve;
@@ -46,6 +55,26 @@ public class HudController : MonoBehaviour
     private Vector3 _heartTargetPosition;
     private Vector2 _firstHeartInitialSizeDelta;
 
+    private Vector3 _healthClickInitialPosition;
+    private Quaternion _healthClickInitialRotation;
+    private Vector3[] _healthClickTargetPositions;
+    private Quaternion[] _healthClickTargetRotations;
+
+    private Vector3 _lightClickInitialPosition;
+    private Quaternion _lightClickInitialRotation;
+    private Vector3[] _lightClickTargetPositions;
+    private Quaternion[] _lightClickTargetRotations;
+
+    private struct ClickData
+    {
+        public float TimePassed;
+        public int ImageId;
+        public bool Busy;
+    }
+
+    private ClickData[] _healthClicksData;
+    private ClickData[] _lightClicksData;
+
     public void Init()
     {
         _state = State.Game;
@@ -59,6 +88,9 @@ public class HudController : MonoBehaviour
         _secondHeart.gameObject.SetActive(false);
 
         _firstHeartInitialSizeDelta = _firstHeart.rectTransform.sizeDelta;
+
+        _healthClicksData = new ClickData[_healthClicks.Length];
+        _lightClicksData = new ClickData[_healthClicks.Length];
 
         Refresh(0f);
     }
@@ -95,6 +127,8 @@ public class HudController : MonoBehaviour
         _lightLevel.text = "Level " + _playerStatsController.LightLevel;
 
         UpdateHearts(dt);
+        UpdateClicks(_healthClicksData, _healthClicks, _healthClickInitialPosition, _healthClickTargetPositions, _healthClickInitialRotation, _healthClickTargetRotations, dt);
+        UpdateClicks(_lightClicksData, _healthClicks, _lightClickInitialPosition, _lightClickTargetPositions, _healthClickInitialRotation, _lightClickTargetRotations, dt);
     }
 
     private void UpdateHearts(float dt)
@@ -141,6 +175,37 @@ public class HudController : MonoBehaviour
         var firstHeartColor = _firstHeart.color;
         firstHeartColor.a = _heartVisibilityCurve.Evaluate(passedPart);
         _firstHeart.color = firstHeartColor;
+    }
+
+    private void UpdateClicks(ClickData[] clicksData, Image[] images, Vector3 initialPosition, Vector3[] targetPositions,
+        Quaternion initialRotation, Quaternion[] targetRotations, float dt)
+    {
+        for (var i = 0; i < clicksData.Length; i++)
+        {
+            if (!clicksData[i].Busy)
+            {
+                continue;
+            }
+
+            clicksData[i].TimePassed += dt;
+
+            var passedPart = Mathf.Clamp01(clicksData[i].TimePassed / _clickMovementDuration);
+            var curvedPart = _clickMovementCurve.Evaluate(passedPart);
+
+            images[clicksData[i].ImageId].rectTransform.localPosition = Vector3.Lerp(initialPosition, targetPositions[i], curvedPart);
+            images[clicksData[i].ImageId].rectTransform.localRotation = Quaternion.Lerp(initialRotation, targetRotations[i], curvedPart);
+
+            var alphaPart = _clickVisibilityCurve.Evaluate(passedPart);
+            var color = images[clicksData[i].ImageId].color;
+            color.a = alphaPart;
+            images[clicksData[i].ImageId].color = color;
+
+            if (clicksData[i].TimePassed >= _clickMovementDuration)
+            {
+                images[clicksData[i].ImageId].gameObject.SetActive(false);
+                clicksData[i].Busy = false;
+            }
+        }
     }
 
     public void CustomUpdate(float dt)

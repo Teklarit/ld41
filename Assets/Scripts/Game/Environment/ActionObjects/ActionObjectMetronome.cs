@@ -14,12 +14,13 @@ public class ActionObjectMetronome : ActionObject
     [SerializeField] private AudioSource _audioSource;
 
     private float _needWorkTime = 0.0f;
+    public float GetNeedWorkTime() { return _needWorkTime; }
 
     private float _waveCurrent;
     private Vector3 _shakeLocalEuler;
     private Vector3 _startLocalEulerAngles;
 
-    private void Start()
+    public virtual void Start()
     {
         _startLocalEulerAngles = _rotPivot.localEulerAngles;
         _shakeLocalEuler = new Vector3(
@@ -43,8 +44,10 @@ public class ActionObjectMetronome : ActionObject
         _needWorkTime = 0.0f;
     }
 
-    private void Update()
+    public override void Update()
     {
+        base.Update();
+
         _needWorkTime -= Time.deltaTime;
         _waveCurrent -= Time.deltaTime;
 
@@ -56,7 +59,6 @@ public class ActionObjectMetronome : ActionObject
             float ratio = Mathf.Clamp01(1.0f - (_waveCurrent / _waveTime));
             Vector3 newLocalEulerAngles = _startLocalEulerAngles + (_shakeLocalEuler * _animCurve.Evaluate(ratio));
             _rotPivot.localEulerAngles = newLocalEulerAngles;
-
         }
 
         CheckAudio();

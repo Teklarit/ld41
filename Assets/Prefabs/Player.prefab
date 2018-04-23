@@ -2970,6 +2970,7 @@ MonoBehaviour:
   _secondHeartbeatBeginTime: 2.1
   _secondHeartbeatEndTime: 2.6
   _fearMultiplierLerpCoef: 20
+  _fearLossRate: 0.25
   _audioSource: {fileID: 82084641957391486}
   _enemaSqueezeAudioClip: {fileID: 8300000, guid: 2a9655189d641ca46975db87efbb2be2,
     type: 3}

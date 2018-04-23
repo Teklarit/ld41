@@ -31,6 +31,7 @@ public class PlayerStatsController : MonoBehaviour
     [SerializeField] private float _secondHeartbeatBeginTime;
     [SerializeField] private float _secondHeartbeatEndTime;
     [SerializeField] private float _fearMultiplierLerpCoef;
+    [SerializeField] private float _fearLossRate;
 
     [Space]
     [SerializeField] private AudioSource _audioSource;
@@ -59,6 +60,9 @@ public class PlayerStatsController : MonoBehaviour
     private bool _firstHeartbeatSoundPlayed;
     private bool _secondHeartbeatSoundPlayed;
 
+    private int _healthClicksLastFrame;
+    private int _lightClicksLastFrame;
+
     public void Init()
     {
         _heartbeatLevel = 0;
@@ -81,6 +85,9 @@ public class PlayerStatsController : MonoBehaviour
 
         _firstHeartbeatSoundPlayed = false;
         _secondHeartbeatSoundPlayed = false;
+
+        _healthClicksLastFrame = 0;
+        _lightClicksLastFrame = 0;
     }
 
     public void AddHeartbeatClick()
@@ -113,6 +120,16 @@ public class PlayerStatsController : MonoBehaviour
         }
 
         _audioSource.PlayOneShot(_flashlightSqueezeAudioClip);
+    }
+
+    public int HealthClicksLastFrame
+    {
+        get { return _healthClicksLastFrame; }
+    }
+
+    public int LightClicksLastFrame
+    {
+        get { return _lightClicksLastFrame; }
     }
 
     public bool IsDead
@@ -182,7 +199,10 @@ public class PlayerStatsController : MonoBehaviour
 
     public void SetFearMultiplier(float fearMultiplier)
     {
-        _targetFearMultiplier = fearMultiplier;
+        if (_targetFearMultiplier < fearMultiplier)
+        {
+            _targetFearMultiplier = fearMultiplier;
+        }
     }
 
     private bool HeartbeatOnTime()
@@ -199,6 +219,9 @@ public class PlayerStatsController : MonoBehaviour
     public void CustomUpdate(float dt)
     {
         _fearMultiplier = Mathf.Lerp(_fearMultiplier, _targetFearMultiplier, Mathf.Clamp01(_fearMultiplierLerpCoef * dt));
+
+        _targetFearMultiplier -= _fearLossRate * dt;
+        _targetFearMultiplier = Mathf.Min(_targetFearMultiplier, 1f);
 
         _heartbeatTimePassed += _fearMultiplier * dt;
         _heartbeatSequencePassedPart = Mathf.Clamp01(_heartbeatTimePassed / _heartbeatsSequenceDuration);

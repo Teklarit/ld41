@@ -1,0 +1,320 @@
+fileFormatVersion: 2
+guid: cb4ac0ec13f40d346a7ff66389241aca
+timeCreated: 1524499330
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: DoorHandled
+    100002: Empty_Mesh
+    100004: Empty_Mesh_1
+    100006: Empty_Mesh_10
+    100008: Empty_Mesh_11
+    100010: Empty_Mesh_12
+    100012: Empty_Mesh_13
+    100014: Empty_Mesh_14
+    100016: Empty_Mesh_2
+    100018: Empty_Mesh_3
+    100020: Empty_Mesh_4
+    100022: Empty_Mesh_5
+    100024: Empty_Mesh_6
+    100026: Empty_Mesh_7
+    100028: Empty_Mesh_8
+    100030: Empty_Mesh_9
+    100032: Handle
+    100034: //RootNode
+    100036: PlayDoor01
+    100038: PlayDoor02
+    100040: PlayDoor03
+    100042: PlayDoor04
+    100044: PlayDoor05
+    100046: PlayDoor06
+    100048: PlayDoor07
+    100050: PlayDoor08
+    100052: PlayDoor09
+    100054: PlayDoor10
+    100056: PlayDoor11
+    100058: PlayDoor12
+    100060: PlayDoor13
+    100062: PlayDoor14
+    100064: PlayDoor15
+    100066: PlayDoor16
+    100068: PlayDoor17
+    400000: DoorHandled
+    400002: Empty_Mesh
+    400004: Empty_Mesh_1
+    400006: Empty_Mesh_10
+    400008: Empty_Mesh_11
+    400010: Empty_Mesh_12
+    400012: Empty_Mesh_13
+    400014: Empty_Mesh_14
+    400016: Empty_Mesh_2
+    400018: Empty_Mesh_3
+    400020: Empty_Mesh_4
+    400022: Empty_Mesh_5
+    400024: Empty_Mesh_6
+    400026: Empty_Mesh_7
+    400028: Empty_Mesh_8
+    400030: Empty_Mesh_9
+    400032: Handle
+    400034: //RootNode
+    400036: PlayDoor01
+    400038: PlayDoor02
+    400040: PlayDoor03
+    400042: PlayDoor04
+    400044: PlayDoor05
+    400046: PlayDoor06
+    400048: PlayDoor07
+    400050: PlayDoor08
+    400052: PlayDoor09
+    400054: PlayDoor10
+    400056: PlayDoor11
+    400058: PlayDoor12
+    400060: PlayDoor13
+    400062: PlayDoor14
+    400064: PlayDoor15
+    400066: PlayDoor16
+    400068: PlayDoor17
+    2100000: Default
+    2100002: glassDoor
+    2100004: Walls
+    2100006: Curtain
+    2100008: plasmascreen
+    2100010: SodaautomatHead
+    2100012: glassSodaautomat
+    2100014: glassWindow
+    2100016: Picture
+    2100018: trees
+    2300000: DoorHandled
+    2300002: Empty_Mesh
+    2300004: Empty_Mesh_1
+    2300006: Empty_Mesh_10
+    2300008: Empty_Mesh_11
+    2300010: Empty_Mesh_12
+    2300012: Empty_Mesh_13
+    2300014: Empty_Mesh_14
+    2300016: Empty_Mesh_2
+    2300018: Empty_Mesh_3
+    2300020: Empty_Mesh_4
+    2300022: Empty_Mesh_5
+    2300024: Empty_Mesh_6
+    2300026: Empty_Mesh_7
+    2300028: Empty_Mesh_8
+    2300030: Empty_Mesh_9
+    2300032: Handle
+    2300034: PlayDoor01
+    2300036: PlayDoor02
+    2300038: PlayDoor03
+    2300040: PlayDoor04
+    2300042: PlayDoor05
+    2300044: PlayDoor06
+    2300046: PlayDoor07
+    2300048: PlayDoor08
+    2300050: PlayDoor09
+    2300052: PlayDoor10
+    2300054: PlayDoor11
+    2300056: PlayDoor12
+    2300058: PlayDoor13
+    2300060: PlayDoor14
+    2300062: PlayDoor15
+    2300064: PlayDoor16
+    2300066: PlayDoor17
+    3300000: DoorHandled
+    3300002: Empty_Mesh
+    3300004: Empty_Mesh_1
+    3300006: Empty_Mesh_10
+    3300008: Empty_Mesh_11
+    3300010: Empty_Mesh_12
+    3300012: Empty_Mesh_13
+    3300014: Empty_Mesh_14
+    3300016: Empty_Mesh_2
+    3300018: Empty_Mesh_3
+    3300020: Empty_Mesh_4
+    3300022: Empty_Mesh_5
+    3300024: Empty_Mesh_6
+    3300026: Empty_Mesh_7
+    3300028: Empty_Mesh_8
+    3300030: Empty_Mesh_9
+    3300032: Handle
+    3300034: PlayDoor01
+    3300036: PlayDoor02
+    3300038: PlayDoor03
+    3300040: PlayDoor04
+    3300042: PlayDoor05
+    3300044: PlayDoor06
+    3300046: PlayDoor07
+    3300048: PlayDoor08
+    3300050: PlayDoor09
+    3300052: PlayDoor10
+    3300054: PlayDoor11
+    3300056: PlayDoor12
+    3300058: PlayDoor13
+    3300060: PlayDoor14
+    3300062: PlayDoor15
+    3300064: PlayDoor16
+    3300066: PlayDoor17
+    4300000: PlayDoor02
+    4300002: PlayDoor03
+    4300004: PlayDoor04
+    4300006: PlayDoor05
+    4300008: PlayDoor06
+    4300010: PlayDoor07
+    4300012: PlayDoor08
+    4300014: PlayDoor09
+    4300016: PlayDoor10
+    4300018: PlayDoor11
+    4300020: PlayDoor12
+    4300022: PlayDoor13
+    4300024: PlayDoor14
+    4300026: PlayDoor15
+    4300028: PlayDoor16
+    4300030: PlayDoor17
+    4300032: Empty_Mesh
+    4300034: Empty_Mesh_1
+    4300036: Empty_Mesh_2
+    4300038: Empty_Mesh_3
+    4300040: Empty_Mesh_4
+    4300042: Empty_Mesh_5
+    4300044: DoorHandled
+    4300046: Empty_Mesh_6
+    4300048: Handle
+    4300050: Empty_Mesh_7
+    4300052: Empty_Mesh_8
+    4300054: Empty_Mesh_9
+    4300056: Empty_Mesh_10
+    4300058: Empty_Mesh_11
+    4300060: PlayDoor01
+    4300062: Empty_Mesh_12
+    4300064: Empty_Mesh_13
+    4300066: Empty_Mesh_14
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Curtain
+    second: {fileID: 2100000, guid: 628db290df33751479c75cf8f96b6baf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default
+    second: {fileID: 2100000, guid: d7c580fc88035b74b98e92b184e54f77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Picture
+    second: {fileID: 2100000, guid: 917d1658208ade247a67330470536426, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SodaautomatHead
+    second: {fileID: 2100000, guid: ad5fe8ca16e0cff418ea17a8c9a1fb5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Walls
+    second: {fileID: 2100000, guid: 3a97f1aa86575524eb3355bd3a12d0ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glassDoor
+    second: {fileID: 2100000, guid: 7b4f4bd9801659a4ca9594555d95c5c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glassSodaautomat
+    second: {fileID: 2100000, guid: fb46bb93d98e00a4889cd52ba74ee2dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glassWindow
+    second: {fileID: 2100000, guid: 1937891207356c345ab8aab62d7e075a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plasmascreen
+    second: {fileID: 2100000, guid: bfd515269204a3d43a28ceaa7960986e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trees
+    second: {fileID: 2100000, guid: 4716472a00d85c34caf1f2d3442aa13e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
