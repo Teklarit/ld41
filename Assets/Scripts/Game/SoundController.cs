@@ -44,7 +44,6 @@ public class SoundController : SingletonBehaviour<SoundController>
             _mainSoundStateVolume -= Time.deltaTime * _soundDownSpeed;
             if (_mainSoundStateVolume <= 0.0f)
             {
-                
                 _mainSoundState = ET_MAIN_SOUND_STATE.UP;
             }
             _mainSoundStateVolume = Mathf.Clamp01(_mainSoundStateVolume);
