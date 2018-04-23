@@ -5,7 +5,7 @@ public class ActionObject : MonoBehaviour
     private ActionObjectActivator.ET_ACTIVATE_TYPE _activateType = ActionObjectActivator.ET_ACTIVATE_TYPE.SIMPLE;
     private float _timeToWork;
 
-    private void Update()
+    public virtual void Update()
     {
         if (_activateType == ActionObjectActivator.ET_ACTIVATE_TYPE.WITH_TIMER)
         {

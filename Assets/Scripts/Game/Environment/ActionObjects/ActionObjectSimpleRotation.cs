@@ -30,8 +30,11 @@ public class ActionObjectSimpleRotation : ActionObject
         _audioSource.Play();
     }
 
-    private void Update()
+     
+    public override void Update()
     {
+        base.Update();
+
         if (_rotationProcess < 1.0f)
         {
             _rotationProcess += Time.deltaTime * _rotationSpeedScaler;
