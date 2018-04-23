@@ -6,12 +6,13 @@ public class ActionObjectRadio : ActionObject
     {
         base.Activate(activateType, time);
 
+        GetComponent<AudioSource>().Play();
     }
 
     public override void Deactivate()
     {
         base.Deactivate();
 
-
+        GetComponent<AudioSource>().Stop();
     }
 }
