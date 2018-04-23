@@ -14,6 +14,7 @@ public class ActionObjectMetronome : ActionObject
     [SerializeField] private AudioSource _audioSource;
 
     private float _needWorkTime = 0.0f;
+    public float GetNeedWorkTime() { return _needWorkTime; }
 
     private float _waveCurrent;
     private Vector3 _shakeLocalEuler;
