@@ -101,6 +101,7 @@ public class PlayerStatsController : MonoBehaviour
         if (_heartbeatClickedThisLevel >= clicksTillNextLevel && _heartbeatLevel < _heartbeatStats.Length - 1)
         {
             _heartbeatClickedThisLevel -= clicksTillNextLevel;
+            ++_heartbeatLevel;
         }
 
         _audioSource.PlayOneShot(_enemaSqueezeAudioClip);
@@ -118,6 +119,7 @@ public class PlayerStatsController : MonoBehaviour
         if (_lighterClickedThisLevel >= clicksTillNextLevel && _lightLevel < _lightStats.Length - 1)
         {
             _lighterClickedThisLevel -= clicksTillNextLevel;
+            ++_lightLevel;
         }
 
         _audioSource.PlayOneShot(_flashlightSqueezeAudioClip);
@@ -169,6 +171,26 @@ public class PlayerStatsController : MonoBehaviour
         get { return _brightness; }
     }
 
+    public float HealthPart
+    {
+        get { return (_health / _heartbeatStats[_heartbeatLevel].MaxHealth / _heartbeatStats.Length) + ((1f / _heartbeatStats.Length) * (_heartbeatLevel)); }
+    }
+
+    public float HeartbeatProgressPart
+    {
+        get { return (HeartbeatProgress / _heartbeatStats.Length) + ((1f / _heartbeatStats.Length) * (_heartbeatLevel + 1)); }
+    }
+
+    public float BrightnessPart
+    {
+        get { return (_brightness / _lightStats[_lightLevel].MaxBrightness / _lightStats.Length) + ((1f / _lightStats.Length) * (_lightLevel)); }
+    }
+
+    public float LightProgressPart
+    {
+        get { return (LightProgress / _lightStats.Length) + ((1f / _lightStats.Length) * (_lightLevel + 1)); }
+    }
+
     public bool HeartbeatClickAvailable
     {
         get { return _heartbeatClickAvailable; }
@@ -197,6 +219,16 @@ public class PlayerStatsController : MonoBehaviour
     public float SecondHeartbeatEndPart
     {
         get { return _secondHeartbeatEndTime / _heartbeatsSequenceDuration; }
+    }
+
+    public int HeartbeatClickedTotal
+    {
+        get { return _heartbeatClickedTotal; }
+    }
+
+    public int LighterClickedTotal
+    {
+        get { return _lighterClickedTotal; }
     }
 
     public void SetFearMultiplier(float fearMultiplier)

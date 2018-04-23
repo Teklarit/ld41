@@ -9,16 +9,14 @@ public class HudController : MonoBehaviour
     [SerializeField] private Image _heartbeatProgress;
     [SerializeField] private Image _brightness;
     [SerializeField] private Image _lightProgress;
-    [SerializeField] private Text _heartbeatLevel;
-    [SerializeField] private Text _lightLevel;
+    [SerializeField] private Text _totalHealthClicks;
+    [SerializeField] private Text _totalLightClicks;
     [Space]
     [SerializeField] private Image _firstHeart;
-    [SerializeField] private Image _firstHeartbeatBegin;
-    [SerializeField] private Image _firstHeartbeatEnd;
+    [SerializeField] private Image _firstHeartbeatBeat;
     [Space]
     [SerializeField] private Image _secondHeart;
-    [SerializeField] private Image _secondHeartbeatBegin;
-    [SerializeField] private Image _secondHeartbeatEnd;
+    [SerializeField] private Image _secondHeartbeatBeat;
     [Space]
     [SerializeField] private AnimationCurve _heartVisibilityCurve;
     [SerializeField] private float _heartSizeMult;
@@ -146,18 +144,18 @@ public class HudController : MonoBehaviour
 
     private void Refresh(float dt)
     {
-        _health.fillAmount = _playerStatsController.Health;
-        _heartbeatProgress.fillAmount = _playerStatsController.HeartbeatProgress;
-        _brightness.fillAmount = _playerStatsController.Brightness;
-        _lightProgress.fillAmount = _playerStatsController.LightProgress;
-        _heartbeatLevel.text = "Level " + _playerStatsController.HeartbeatLevel;
-        _lightLevel.text = "Level " + _playerStatsController.LightLevel;
+        _health.fillAmount = _playerStatsController.HealthPart;
+        _heartbeatProgress.fillAmount = _playerStatsController.HeartbeatProgressPart;
+        _brightness.fillAmount = _playerStatsController.BrightnessPart;
+        _lightProgress.fillAmount = _playerStatsController.LightProgressPart;
+        _totalHealthClicks.text = _playerStatsController.HeartbeatClickedTotal.ToString();
+        _totalLightClicks.text = _playerStatsController.LighterClickedTotal.ToString();
 
         UpdateHearts(dt);
         AddClicks(_healthClicks, _healthClicksData, _playerStatsController.HealthClickedLastFrame);
         AddClicks(_lightClicks, _lightClicksData, _playerStatsController.LightClickedLastFrame);
         UpdateClicks(_healthClicksData, _healthClicks, _healthClickInitialPosition, _healthClickTargetPositions, _healthClickInitialRotation, _healthClickTargetRotations, dt);
-        UpdateClicks(_lightClicksData, _lightClicks, _lightClickInitialPosition, _lightClickTargetPositions, _healthClickInitialRotation, _lightClickTargetRotations, dt);
+        UpdateClicks(_lightClicksData, _lightClicks, _lightClickInitialPosition, _lightClickTargetPositions, _lightClickInitialRotation, _lightClickTargetRotations, dt);
     }
 
     private void UpdateHearts(float dt)
@@ -172,10 +170,8 @@ public class HudController : MonoBehaviour
         var secondHeartbeatBeginPosition = Vector3.Lerp(_heartSourcePosition, _heartTargetPosition, secondHeartbeatBeginPart);
         var secondHeartbeatEndPosition = Vector3.Lerp(_heartSourcePosition, _heartTargetPosition, secondHeartbeatEndPart);
 
-        _firstHeartbeatBegin.rectTransform.localPosition = firstHeartbeatBeginPosition;
-        _firstHeartbeatEnd.rectTransform.localPosition = firstHeartbeatEndPosition;
-        _secondHeartbeatBegin.rectTransform.localPosition = secondHeartbeatBeginPosition;
-        _secondHeartbeatEnd.rectTransform.localPosition = secondHeartbeatEndPosition;
+        _firstHeartbeatBeat.rectTransform.localPosition = Vector3.Lerp(firstHeartbeatBeginPosition, firstHeartbeatEndPosition, 0.5f);
+        _secondHeartbeatBeat.rectTransform.localPosition = Vector3.Lerp(secondHeartbeatBeginPosition, secondHeartbeatEndPosition, 0.5f);
 
         var passedPart = _playerStatsController.HeartbeatSequencePassedPart;
 
