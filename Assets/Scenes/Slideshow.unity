@@ -341,7 +341,7 @@ MonoBehaviour:
   _images:
   - {fileID: 1280315898}
   - {fileID: 683998082}
-  _imageTransitionDuration: 3
+  _imageTransitionDuration: 5
   _imageTransitionCurve:
     serializedVersion: 2
     m_Curve:
@@ -352,13 +352,13 @@ MonoBehaviour:
       outSlope: 2
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.25
+      time: 0.1
       value: 1
       inSlope: 0.0024723273
       outSlope: 0.0024723273
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.75
+      time: 0.9
       value: 1
       inSlope: -0.00059604645
       outSlope: -0.00059604645
