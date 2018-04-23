@@ -2,6 +2,9 @@
 
 public class ActionObject : MonoBehaviour
 {
+    [SerializeField] private float _fearDistance = 10.0f;
+    [SerializeField] private float _fearPower = 1.0f;
+
     private ActionObjectActivator.ET_ACTIVATE_TYPE _activateType = ActionObjectActivator.ET_ACTIVATE_TYPE.SIMPLE;
     private float _timeToWork;
 
@@ -22,12 +25,18 @@ public class ActionObject : MonoBehaviour
             _activateType = activateType;
             _timeToWork = time;
         }
+        ApplyFear();
     }
 
     public virtual void Deactivate()
     {
         if (_activateType == ActionObjectActivator.ET_ACTIVATE_TYPE.WITH_TIMER)
             _activateType = ActionObjectActivator.ET_ACTIVATE_TYPE.SIMPLE;
+    }
+
+    public virtual void ApplyFear()
+    {
+        // TODO: find player and send fear!
     }
 	
 }
