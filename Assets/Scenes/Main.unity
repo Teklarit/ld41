@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2050815332}
-  m_IndirectSpecularColor: {r: 0.07036909, g: 0.13691357, b: 0.32416937, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1937,6 +1937,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 136837201667671394, guid: f539fed45060a484e867060de7d2a00d,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f539fed45060a484e867060de7d2a00d, type: 2}
   m_IsPrefabParent: 0
@@ -2522,6 +2527,30 @@ Prefab:
     - target: {fileID: 2300038, guid: 120e0590859d39a418802d43fcb8fc3f, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400236, guid: 120e0590859d39a418802d43fcb8fc3f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400236, guid: 120e0590859d39a418802d43fcb8fc3f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.17406559
+      objectReference: {fileID: 0}
+    - target: {fileID: 400236, guid: 120e0590859d39a418802d43fcb8fc3f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98473406
+      objectReference: {fileID: 0}
+    - target: {fileID: 400236, guid: 120e0590859d39a418802d43fcb8fc3f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 400236, guid: 120e0590859d39a418802d43fcb8fc3f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.496
+      objectReference: {fileID: 0}
+    - target: {fileID: 400236, guid: 120e0590859d39a418802d43fcb8fc3f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 20.049002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 120e0590859d39a418802d43fcb8fc3f, type: 3}
@@ -3708,7 +3737,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.44371057, y: 1.965, z: 1.0623016}
+  m_Size: {x: 0.04, y: 1.965, z: 1.0623016}
   m_Center: {x: -3.8300004, y: 1.0075, z: -3.3674998}
 --- !u!65 &1653565459
 BoxCollider:
