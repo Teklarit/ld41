@@ -121,6 +121,7 @@ public class SceneStateController : SingletonBehaviour<SceneStateController>
         _nextSceneLoading = false;
 
         SceneLoadHandler.Instance.FindFadeModel();
+        SoundController.Instance.OnMainSceneStart();
 
         _mainSceneController = FindObjectOfType<MainSceneController>();
         _mainSceneController.Init();
