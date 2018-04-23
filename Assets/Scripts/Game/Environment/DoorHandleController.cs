@@ -13,6 +13,9 @@ public class DoorHandleController : MonoBehaviour
     [SerializeField] private bool _shakeX = false;
     [SerializeField] private bool _shakeY = true;
     [SerializeField] private bool _shakeZ = true;
+    [Space]
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _audioClip;
 
     private float _needShakeTime = 0.0f;
     private Vector3 _startLocalEulerAngles;
@@ -34,6 +37,8 @@ public class DoorHandleController : MonoBehaviour
     {
         _needShakeTime -= Time.deltaTime;
         _waveCurrent -= Time.deltaTime;
+
+        CheckSoound();
 
         if (_needShakeTime >= 0.0f)
         {
@@ -57,6 +62,19 @@ public class DoorHandleController : MonoBehaviour
             float ratio = Mathf.Clamp01(1.0f - (_waveCurrent / _waveTime));
             Vector3 newLocalEulerAngles = Vector3.Lerp(_startLocalEulerAngles, _shakeLocalEuler, _animCurve.Evaluate(ratio));
             _doorHandle.localEulerAngles = newLocalEulerAngles;
+        }
+    }
+
+    private void CheckSoound()
+    {
+        if (_needShakeTime >= 0.0f && !_audioSource.isPlaying)
+        {
+            _audioSource.clip = _audioClip;
+            _audioSource.Play();
+        }
+        if (_audioSource.isPlaying && _needShakeTime < 0.0f)
+        {
+            _audioSource.Stop();
         }
     }
 }
