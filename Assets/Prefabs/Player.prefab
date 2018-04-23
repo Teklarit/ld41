@@ -2864,8 +2864,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.2
-  m_Range: 15
+  m_Intensity: 0.4
+  m_Range: 4
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -2900,8 +2900,8 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
-  m_Range: 10
+  m_Intensity: 1.8
+  m_Range: 12
   m_SpotAngle: 90
   m_CookieSize: 10
   m_Shadows:
@@ -2953,16 +2953,16 @@ MonoBehaviour:
     HeartbeatClicksTillNextLevel: 140
   _lightStats:
   - MaxBrightness: 0.6
-    BrightnessLoseRate: 0.8
+    BrightnessLoseRate: 0.9
     BrightnessGainPerClick: 0.2
     LightClicksTillNextLevel: 200
   - MaxBrightness: 0.8
-    BrightnessLoseRate: 1
-    BrightnessGainPerClick: 0.25
+    BrightnessLoseRate: 1.5
+    BrightnessGainPerClick: 0.3
     LightClicksTillNextLevel: 200
   - MaxBrightness: 1
-    BrightnessLoseRate: 1.2
-    BrightnessGainPerClick: 0.3
+    BrightnessLoseRate: 1.8
+    BrightnessGainPerClick: 0.4
     LightClicksTillNextLevel: 200
   _heartbeatsSequenceDuration: 3
   _firstHeartbeatBeginTime: 1.5
@@ -2970,6 +2970,14 @@ MonoBehaviour:
   _secondHeartbeatBeginTime: 2.1
   _secondHeartbeatEndTime: 2.6
   _fearMultiplierLerpCoef: 20
+  _audioSource: {fileID: 82084641957391486}
+  _enemaSqueezeAudioClip: {fileID: 8300000, guid: 2a9655189d641ca46975db87efbb2be2,
+    type: 3}
+  _flashlightSqueezeAudioClip: {fileID: 8300000, guid: 2a9655189d641ca46975db87efbb2be2,
+    type: 3}
+  _heartbeatAudioClip: {fileID: 8300000, guid: 2a9655189d641ca46975db87efbb2be2, type: 3}
+  _firstHeartBeatTime: 1.9
+  _secondHeartBeatTime: 2.2
 --- !u!114 &114304071861904958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3006,13 +3014,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _autoClick: 1
-  _autoClickDuration: 0.2
+  _autoClickDuration: 0.15
   _playerMovementController: {fileID: 114916874955254208}
   _playerViewController: {fileID: 114304071861904958}
   _playerStatsController: {fileID: 114086085572350840}
   _playerAnimationController: {fileID: 114567436201317256}
   _flashlightSpotlight: {fileID: 108910726805026636}
-  _flashlightSpotlightMaxIntensity: 1.5
+  _flashlightSpotlightMaxIntensity: 1.8
   _flashlightSpotlightCurve:
     serializedVersion: 2
     m_Curve:
@@ -3039,8 +3047,26 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 6.891835
+      outSlope: 6.891835
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.09797382
+      value: 0.4492992
+      inSlope: 3.1256776
+      outSlope: 3.1256776
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.32908806
+      value: 0.8534625
+      inSlope: 0.9261566
+      outSlope: 0.9261566
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.50076824
+      value: 0.96541595
+      inSlope: 0.28826994
+      outSlope: 0.28826994
       tangentMode: 0
     - serializedVersion: 2
       time: 1
