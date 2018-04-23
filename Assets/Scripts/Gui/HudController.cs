@@ -21,6 +21,7 @@ public class HudController : MonoBehaviour
     [SerializeField] private Image _secondHeartbeatEnd;
     [Space]
     [SerializeField] private AnimationCurve _heartVisibilityCurve;
+    [SerializeField] private float _heartSizeMult;
     [Space]
     [SerializeField] private float _deathSequenceDuration;
     [SerializeField] private Image _deathScreen;
@@ -43,6 +44,7 @@ public class HudController : MonoBehaviour
 
     private Vector3 _heartSourcePosition;
     private Vector3 _heartTargetPosition;
+    private Vector2 _firstHeartInitialSizeDelta;
 
     public void Init()
     {
@@ -55,6 +57,8 @@ public class HudController : MonoBehaviour
         _heartSourcePosition = _firstHeart.rectTransform.localPosition;
         _heartTargetPosition = _secondHeart.rectTransform.localPosition;
         _secondHeart.gameObject.SetActive(false);
+
+        _firstHeartInitialSizeDelta = _firstHeart.rectTransform.sizeDelta;
 
         Refresh(0f);
     }
@@ -111,6 +115,26 @@ public class HudController : MonoBehaviour
         _secondHeartbeatEnd.rectTransform.localPosition = secondHeartbeatEndPosition;
 
         var passedPart = _playerStatsController.HeartbeatSequencePassedPart;
+
+        if (passedPart >= firstHeartbeatBeginPart && passedPart <= firstHeartbeatEndPart)
+        {
+            var totalDistance = firstHeartbeatEndPart - firstHeartbeatBeginPart;
+            var currentDistance = passedPart - firstHeartbeatBeginPart;
+            var sizeInc = Mathf.Sin(currentDistance / totalDistance * Mathf.PI) * _heartSizeMult;
+            _firstHeart.rectTransform.sizeDelta = _firstHeartInitialSizeDelta + new Vector2(sizeInc, sizeInc);
+        }
+        else if (passedPart >= secondHeartbeatBeginPart && passedPart <= secondHeartbeatEndPart)
+        {
+            var totalDistance = secondHeartbeatEndPart - secondHeartbeatBeginPart;
+            var currentDistance = passedPart - secondHeartbeatBeginPart;
+            var sizeInc = Mathf.Sin(currentDistance / totalDistance * Mathf.PI) * _heartSizeMult;
+            _firstHeart.rectTransform.sizeDelta = _firstHeartInitialSizeDelta + new Vector2(sizeInc, sizeInc);
+        }
+        else
+        {
+            _firstHeart.rectTransform.sizeDelta = _firstHeartInitialSizeDelta;
+        }
+
         var firstHeartPosition = Vector3.Lerp(_heartSourcePosition, _heartTargetPosition, passedPart);
         _firstHeart.rectTransform.localPosition = firstHeartPosition;
 
