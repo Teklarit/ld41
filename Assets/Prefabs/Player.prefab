@@ -2790,7 +2790,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2902,7 +2902,7 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
   m_Range: 10
-  m_SpotAngle: 100
+  m_SpotAngle: 90
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -2952,18 +2952,18 @@ MonoBehaviour:
     HealthGainPerClick: 0.1
     HeartbeatClicksTillNextLevel: 140
   _lightStats:
-  - MaxBrightness: 0.7
+  - MaxBrightness: 0.6
     BrightnessLoseRate: 0.8
     BrightnessGainPerClick: 0.2
-    LightClicksTillNextLevel: 100
-  - MaxBrightness: 0.85
+    LightClicksTillNextLevel: 200
+  - MaxBrightness: 0.8
     BrightnessLoseRate: 1
     BrightnessGainPerClick: 0.25
-    LightClicksTillNextLevel: 100
+    LightClicksTillNextLevel: 200
   - MaxBrightness: 1
     BrightnessLoseRate: 1.2
     BrightnessGainPerClick: 0.3
-    LightClicksTillNextLevel: 100
+    LightClicksTillNextLevel: 200
   _heartbeatsSequenceDuration: 3
   _firstHeartbeatBeginTime: 1.5
   _firstHeartbeatEndTime: 2
@@ -3005,12 +3005,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867285f2a2514aa489d7b7f17b8c82a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _autoClick: 1
+  _autoClickDuration: 0.2
   _playerMovementController: {fileID: 114916874955254208}
   _playerViewController: {fileID: 114304071861904958}
   _playerStatsController: {fileID: 114086085572350840}
   _playerAnimationController: {fileID: 114567436201317256}
   _flashlightSpotlight: {fileID: 108910726805026636}
-  _flashlightSpotlightMaxIntensity: 1.8
+  _flashlightSpotlightMaxIntensity: 1.5
   _flashlightSpotlightCurve:
     serializedVersion: 2
     m_Curve:

@@ -2,6 +2,9 @@
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private bool _autoClick;
+    [SerializeField] private float _autoClickDuration;
+    [Space]
     [SerializeField] private PlayerMovementController _playerMovementController;
     [SerializeField] private PlayerViewController _playerViewController;
     [SerializeField] private PlayerStatsController _playerStatsController;
@@ -46,6 +49,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 _rightShoulderForward;
     private float _shoulderRotationTimePassed;
 
+    private float _autoClickTimePassed;
+    private bool _shouldersInitialized;
+
     public void Init()
     {
         _playerMovementController.Init();
@@ -56,10 +62,8 @@ public class PlayerController : MonoBehaviour
         _timePassed = 0f;
         _state = State.Idle;
 
-        _leftShoulderInitialRotation = _leftShoulder.localRotation;
-        _rightShoulderInitialRotation = _rightShoulder.localRotation;
-        _leftShoulderViewInitialRotation = _leftShoulderView.localRotation;
-        _rightShoulderViewInitialRotation = _rightShoulderView.localRotation;
+        _autoClickTimePassed = 0f;
+        _shouldersInitialized = false;
     }
 
     public bool PlayerDied
@@ -109,7 +113,7 @@ public class PlayerController : MonoBehaviour
                     _playerAnimationController.SetEnemaState(PlayerAnimationController.EnemaState.Idle);
                 }
 
-                if (Input.GetKeyDown(KeyCode.Mouse0))
+                if (Input.GetKeyDown(KeyCode.Mouse0) || (_autoClick && AutoClickPerformed(dt)))
                 {
                     _playerStatsController.AddLighterClick();
                     _playerAnimationController.SetHandState(PlayerAnimationController.Hand.Right, PlayerAnimationController.HandState.FlashlightSqueezed);
@@ -172,6 +176,16 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateShouldersMovement(float dt)
     {
+        if (!_shouldersInitialized)
+        {
+            _leftShoulderInitialRotation = _leftShoulder.localRotation;
+            _rightShoulderInitialRotation = _rightShoulder.localRotation;
+            _leftShoulderViewInitialRotation = _leftShoulderView.localRotation;
+            _rightShoulderViewInitialRotation = _rightShoulderView.localRotation;
+
+            _shouldersInitialized = true;
+        }
+
         var localMovementDirection = _playerMovementController.LocalMoveDirection;
         var movementSpeedMult = _playerMovementController.SpeedPart;
 
@@ -206,5 +220,17 @@ public class PlayerController : MonoBehaviour
         {
             _shoulderRotationTimePassed -= _shoulderRotationDuration;
         }
+    }
+
+    private bool AutoClickPerformed(float dt)
+    {
+        _autoClickTimePassed += dt;
+        if (_autoClickTimePassed >= _autoClickDuration)
+        {
+            _autoClickTimePassed -= _autoClickDuration;
+            return true;
+        }
+
+        return false;
     }
 }
