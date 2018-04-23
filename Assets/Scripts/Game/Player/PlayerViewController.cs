@@ -11,6 +11,11 @@ public class PlayerViewController : MonoBehaviour
     [SerializeField] private float _upMovementMult;
     [SerializeField] private float _viewBobLerpCoef;
     [SerializeField] private float _stepDuration;
+    [Space]
+    [SerializeField] private float _firstFootstepTime;
+    [SerializeField] private float _secondFootstepTime;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _footstepsAudioClip;
 
     private float sensitivityX = 100.0f;
     private float sensitivityY = 100.0f;
@@ -28,6 +33,9 @@ public class PlayerViewController : MonoBehaviour
     private float _idleTimePassed;
     private float _stepTimePassed;
 
+    private bool _firstFootstepPlayed;
+    private bool _secondFootstepPlayed;
+
     public Vector3 ViewPosition
     {
         get { return _view.position; }
@@ -41,8 +49,12 @@ public class PlayerViewController : MonoBehaviour
     public void Init()
     {
         _initialViewLocalPosition = _view.localPosition;
+
         _idleTimePassed = 0f;
         _stepTimePassed = 0f;
+
+        _firstFootstepPlayed = false;
+        _secondFootstepPlayed = false;
     }
 
     public void CustomUpdate(float dt)
@@ -63,6 +75,8 @@ public class PlayerViewController : MonoBehaviour
         if (speedMultiplier <= 0.001f)
         {
             _stepTimePassed = _stepDuration * 0f;
+            _firstFootstepPlayed = false;
+            _secondFootstepPlayed = false;
         }
 
         var clampedMultiplier = Mathf.Lerp(_viewBobMinValue, _viewBobMaxValue, _playerMovementController.SpeedPart);
@@ -94,9 +108,23 @@ public class PlayerViewController : MonoBehaviour
             _idleTimePassed -= _stepDuration;
         }
 
+        if (!_firstFootstepPlayed && _stepTimePassed >= _firstFootstepTime)
+        {
+            _audioSource.PlayOneShot(_footstepsAudioClip);
+            _firstFootstepPlayed = true;
+        }
+
+        if (!_secondFootstepPlayed && _stepTimePassed >= _secondFootstepTime)
+        {
+            _audioSource.PlayOneShot(_footstepsAudioClip);
+            _secondFootstepPlayed = true;
+        }
+
         if (_stepTimePassed >= _stepDuration)
         {
             _stepTimePassed -= _stepDuration;
+            _firstFootstepPlayed = false;
+            _secondFootstepPlayed = false;
         }
     }
 }
