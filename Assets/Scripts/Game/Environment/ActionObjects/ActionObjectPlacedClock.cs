@@ -12,7 +12,7 @@ public class ActionObjectPlacedClock : ActionObjectMetronome
     [SerializeField] private Transform _arrowHours;
     [SerializeField] private float _hoursSpeed = 100.0f;
     [SerializeField] private bool _rotateHoursX = false;
-    [SerializeField] private bool _rotateHourssY = false;
+    [SerializeField] private bool _rotateHoursY = false;
     [SerializeField] private bool _rotateHoursZ = false;
 
     public override void Activate(ActionObjectActivator.ET_ACTIVATE_TYPE activateType, float time = 0)
@@ -47,7 +47,7 @@ public class ActionObjectPlacedClock : ActionObjectMetronome
             Vector3 hoursEuler = _arrowHours.localEulerAngles;
             float hoursChange = Time.deltaTime * _hoursSpeed;
             if (_rotateHoursX) { hoursEuler.x += hoursChange; }
-            if (_rotateHourssY) { hoursEuler.y += hoursChange; }
+            if (_rotateHoursY) { hoursEuler.y += hoursChange; }
             if (_rotateHoursZ) { hoursEuler.z += hoursChange; }
             _arrowHours.localEulerAngles = hoursEuler;
         }
