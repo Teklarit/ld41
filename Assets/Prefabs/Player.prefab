@@ -2970,6 +2970,14 @@ MonoBehaviour:
   _secondHeartbeatBeginTime: 2.1
   _secondHeartbeatEndTime: 2.6
   _fearMultiplierLerpCoef: 20
+  _audioSource: {fileID: 82084641957391486}
+  _enemaSqueezeAudioClip: {fileID: 8300000, guid: 2a9655189d641ca46975db87efbb2be2,
+    type: 3}
+  _flashlightSqueezeAudioClip: {fileID: 8300000, guid: 2a9655189d641ca46975db87efbb2be2,
+    type: 3}
+  _heartbeatAudioClip: {fileID: 8300000, guid: 2a9655189d641ca46975db87efbb2be2, type: 3}
+  _firstHeartBeatTime: 1.9
+  _secondHeartBeatTime: 2.2
 --- !u!114 &114304071861904958
 MonoBehaviour:
   m_ObjectHideFlags: 1

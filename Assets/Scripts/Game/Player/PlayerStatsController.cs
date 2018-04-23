@@ -32,6 +32,14 @@ public class PlayerStatsController : MonoBehaviour
     [SerializeField] private float _secondHeartbeatEndTime;
     [SerializeField] private float _fearMultiplierLerpCoef;
 
+    [Space]
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _enemaSqueezeAudioClip;
+    [SerializeField] private AudioClip _flashlightSqueezeAudioClip;
+    [SerializeField] private AudioClip _heartbeatAudioClip;
+    [SerializeField] private float _firstHeartBeatTime;
+    [SerializeField] private float _secondHeartBeatTime;
+
     private float _health;
     private float _brightness;
     private float _fearMultiplier;
@@ -47,6 +55,9 @@ public class PlayerStatsController : MonoBehaviour
     private float _heartbeatSequencePassedPart;
     private bool _heartbeatClickAvailable;
     private bool _heartbeatClickPerformed;
+
+    private bool _firstHeartbeatSoundPlayed;
+    private bool _secondHeartbeatSoundPlayed;
 
     public void Init()
     {
@@ -67,6 +78,9 @@ public class PlayerStatsController : MonoBehaviour
         _heartbeatSequencePassedPart = 0f;
         _heartbeatClickAvailable = false;
         _heartbeatClickPerformed = false;
+
+        _firstHeartbeatSoundPlayed = false;
+        _secondHeartbeatSoundPlayed = false;
     }
 
     public void AddHeartbeatClick()
@@ -77,12 +91,12 @@ public class PlayerStatsController : MonoBehaviour
         _health = Mathf.Min(_health, _heartbeatStats[_heartbeatLevel].MaxHealth);
 
         var clicksTillNextLevel = _heartbeatStats[_heartbeatLevel].HeartbeatClicksTillNextLevel;
-        if (_heartbeatClickedThisLevel >= clicksTillNextLevel)
+        if (_heartbeatClickedThisLevel >= clicksTillNextLevel && _heartbeatLevel < _heartbeatStats.Length - 1)
         {
             _heartbeatClickedThisLevel -= clicksTillNextLevel;
-            ++_heartbeatLevel;
-            _heartbeatLevel = Math.Min(_heartbeatLevel, _heartbeatStats.Length - 1);
         }
+
+        _audioSource.PlayOneShot(_enemaSqueezeAudioClip);
     }
 
     public void AddLighterClick()
@@ -93,12 +107,12 @@ public class PlayerStatsController : MonoBehaviour
         _brightness = Mathf.Min(_brightness, _lightStats[_lightLevel].MaxBrightness);
 
         var clicksTillNextLevel = _lightStats[_lightLevel].LightClicksTillNextLevel;
-        if (_lighterClickedThisLevel >= clicksTillNextLevel)
+        if (_lighterClickedThisLevel >= clicksTillNextLevel && _lightLevel < _lightStats.Length - 1)
         {
             _lighterClickedThisLevel -= clicksTillNextLevel;
-            ++_lightLevel;
-            _lightLevel = Math.Min(_lightLevel, _lightStats.Length - 1);
         }
+
+        _audioSource.PlayOneShot(_flashlightSqueezeAudioClip);
     }
 
     public bool IsDead
@@ -198,10 +212,24 @@ public class PlayerStatsController : MonoBehaviour
         {
             _heartbeatClickPerformed = false;
         }
-       
+
+        if (!_firstHeartbeatSoundPlayed && _heartbeatTimePassed >= _firstHeartBeatTime)
+        {
+            _audioSource.PlayOneShot(_heartbeatAudioClip);
+            _firstHeartbeatSoundPlayed = true;
+        }
+
+        if (!_secondHeartbeatSoundPlayed && _heartbeatTimePassed >= _secondHeartBeatTime)
+        {
+            _audioSource.PlayOneShot(_heartbeatAudioClip);
+            _secondHeartbeatSoundPlayed = true;
+        }
+
         if (_heartbeatTimePassed >= _heartbeatsSequenceDuration)
         {
             _heartbeatTimePassed -= _heartbeatsSequenceDuration;
+            _firstHeartbeatSoundPlayed = false;
+            _secondHeartbeatSoundPlayed = false;
         }
 
         _health -= _heartbeatStats[_heartbeatLevel].HealthLoseRate * _fearMultiplier * dt;
