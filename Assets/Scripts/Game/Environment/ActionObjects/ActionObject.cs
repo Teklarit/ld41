@@ -43,7 +43,10 @@ public class ActionObject : MonoBehaviour
         var distance = (playerController.transform.position - transform.position).magnitude;
         if (distance <= _fearDistance)
         {
-            // SEND FEAR?
+            var playerStatsController = FindObjectOfType<PlayerStatsController>();
+            if (playerStatsController != null)
+                playerStatsController.SetFearMultiplier(_fearPower);
+            
         }
     }
 	
