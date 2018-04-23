@@ -11,7 +11,14 @@ public class DoorController : MonoBehaviour
     [Space]
     [SerializeField] private float _slowTime = 0.4f;
     [SerializeField] private float _fastTime = 2.0f;
-    
+    [Space]
+    [SerializeField] private AudioSource _audioSource;
+    [Space]
+    [SerializeField] private AudioClip _audioClipSlowOpen;
+    [SerializeField] private AudioClip _audioClipSlowClose;
+    [SerializeField] private AudioClip _audioClipFastOpen;
+    [SerializeField] private AudioClip _audioClipFastClose;
+
     private float _doorChangeProcess = 0.0f;
     private float _startAngle = 0.0f;
     private float _targetAngle = 0.0f;
@@ -54,12 +61,28 @@ public class DoorController : MonoBehaviour
             _doorSpeed = doorSpeed;
         }
 
+        PlayDoorSound(isOpen, doorSpeed);
+
         _doorSpeed = doorSpeed;
         _doorChangeProcess = 0.0f;
 
         _isTargetOpen = isOpen;
         _targetAngle = isOpen ? _maxOpenAngle : 0.0f;
         _startAngle = _rotationPivot.localRotation.eulerAngles.y;
+    }
+
+    private void PlayDoorSound(bool isOpen, ET_DOOR_SPEED doorSpeed)
+    {
+        if (isOpen == true && doorSpeed == ET_DOOR_SPEED.SLOW)
+            _audioSource.clip = _audioClipSlowOpen;
+        if (isOpen == false && doorSpeed == ET_DOOR_SPEED.SLOW)
+            _audioSource.clip = _audioClipSlowClose;
+        if (isOpen == true && doorSpeed == ET_DOOR_SPEED.FAST)
+            _audioSource.clip = _audioClipFastOpen;
+        if (isOpen == false && doorSpeed == ET_DOOR_SPEED.FAST)
+            _audioSource.clip = _audioClipFastClose;
+
+        _audioSource.Play();
     }
 
 }
