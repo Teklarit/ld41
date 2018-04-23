@@ -36,7 +36,15 @@ public class ActionObject : MonoBehaviour
 
     public virtual void ApplyFear()
     {
-        // TODO: find player and send fear!
+        var playerController = FindObjectOfType<PlayerController>();
+        if (playerController == null)
+            return;
+
+        var distance = (playerController.transform.position - transform.position).magnitude;
+        if (distance <= _fearDistance)
+        {
+            // SEND FEAR?
+        }
     }
 	
 }
