@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4177593063137148}
   - component: {fileID: 114942353087830560}
+  - component: {fileID: 82470960087298466}
   m_Layer: 0
   m_Name: Metronome
   m_TagString: Untagged
@@ -213,6 +214,86 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1827844443473918}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!82 &82470960087298466
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1464501780024844}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e83c693febf77024a8166be88fca380d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114942353087830560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,4 +305,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f16c94c41c1104c92ddb4f180d9f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _anim: {fileID: 0}
+  _rotPivot: {fileID: 4902138384534152}
+  _animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: -7.7997847
+      outSlope: -7.7997847
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.25197744
+      value: -1.0000219
+      inSlope: 0.03274262
+      outSlope: 0.03274262
+      tangentMode: 1
+    - serializedVersion: 2
+      time: 0.49955928
+      value: -0.0012317711
+      inSlope: 7.315093
+      outSlope: 7.315093
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.75119334
+      value: 0.9995007
+      inSlope: -0.022986412
+      outSlope: -0.022986412
+      tangentMode: 1
+    - serializedVersion: 2
+      time: 0.999532
+      value: 0.00045715272
+      inSlope: -7.4578032
+      outSlope: -7.4578032
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  _waveTime: 0.75
+  _maxAngle: 25
+  _rotateX: 1
+  _rotateY: 0
+  _rotateZ: 0
+  _audioSource: {fileID: 82470960087298466}
