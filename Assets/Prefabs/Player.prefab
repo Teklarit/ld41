@@ -2356,7 +2356,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1143197739373424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.6, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4950622319000950}
@@ -2784,7 +2784,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.2
-  m_Range: 10
+  m_Range: 15
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -2883,11 +2883,11 @@ MonoBehaviour:
     BrightnessLoseRate: 1.2
     BrightnessGainPerClick: 0.3
     LightClicksTillNextLevel: 100
-  _heartbeatsSequenceDuration: 1.5
-  _firstHeartbeatBeginTime: 0.5
-  _firstHeartbeatEndTime: 0.75
-  _secondHeartbeatBeginTime: 1
-  _secondHeartbeatEndTime: 1.25
+  _heartbeatsSequenceDuration: 3
+  _firstHeartbeatBeginTime: 1.5
+  _firstHeartbeatEndTime: 2
+  _secondHeartbeatBeginTime: 2.1
+  _secondHeartbeatEndTime: 2.6
   _fearMultiplierLerpCoef: 20
 --- !u!114 &114304071861904958
 MonoBehaviour:
@@ -2900,7 +2900,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7e96eeec24b8f4d85f2990d20e462e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerMovementController: {fileID: 114916874955254208}
   _view: {fileID: 4700947008410538}
+  _viewBobMinValue: 0.2
+  _viewBobMaxValue: 1
+  _sideMovementMult: 0.06
+  _forwardMovementMult: 0.05
+  _upMovementMult: 0.04
+  _viewBobLerpCoef: 10
+  _stepDuration: 1.2
 --- !u!114 &114533830785713142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2992,9 +3000,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c67e77ec25cac45a4cc443b4186255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkSpeed: 4
-  _runSpeed: 6
-  _strafeSpeed: 2
+  _walkSpeed: 2
+  _runSpeed: 3
+  _strafeSpeed: 1.5
   _rigidbody: {fileID: 54617227965467842}
 --- !u!136 &136837201667671394
 CapsuleCollider:

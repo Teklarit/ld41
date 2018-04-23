@@ -154,6 +154,7 @@ public class PlayerController : MonoBehaviour
         switch (_state)
         {
             case State.Idle:
+                _playerViewController.CustomLateUpdate(dt);
                 UpdateShouldersMovement(dt);
 
                 break;
