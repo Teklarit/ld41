@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _shoulderSideMovementSpeedMult;
     [SerializeField] private float _shoulderMovementLerpCoef;
     [Space]
+    [SerializeField] private float _attractionRadiusMultiplier;
+    [Space]
     [SerializeField] private float _deathSequenceDuration;
     [SerializeField] private float _winSequenceDuration;
 
@@ -64,6 +66,11 @@ public class PlayerController : MonoBehaviour
 
         _autoClickTimePassed = 0f;
         _shouldersInitialized = false;
+    }
+
+    public float AttractionRadius
+    {
+        get { return _playerStatsController.Brightness * _attractionRadiusMultiplier; }
     }
 
     public bool PlayerDied

@@ -3086,6 +3086,7 @@ MonoBehaviour:
   _shoulderRotationMaxValue: 0.04
   _shoulderSideMovementSpeedMult: 2
   _shoulderMovementLerpCoef: 5
+  _attractionRadiusMultiplier: 5
   _deathSequenceDuration: 3
   _winSequenceDuration: 3
 --- !u!114 &114567436201317256
