@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     [Space]
     [SerializeField] private float _deathSequenceDuration;
     [SerializeField] private float _winSequenceDuration;
+    [SerializeField] private AnimationCurve _lastSequenceDurationCurve;
 
     private enum State
     {
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
     private bool _playerWon;
     private float _handsHeight;
+    private float _handsForward;
 
     public void Init()
     {
@@ -91,6 +93,7 @@ public class PlayerController : MonoBehaviour
     {
         _state = State.DeathSequence;
         _handsHeight = _playerViewController.GetHandsHeight();
+        _handsForward = _playerViewController.GetHandsForward();
     }
 
     public bool DeathSequenceEnded
@@ -102,6 +105,7 @@ public class PlayerController : MonoBehaviour
     {
         _state = State.WinSequence;
         _handsHeight = _playerViewController.GetHandsHeight();
+        _handsForward = _playerViewController.GetHandsForward();
     }
 
     public bool WinSequenceEnded
@@ -152,17 +156,23 @@ public class PlayerController : MonoBehaviour
 
                 break;
             case State.DeathSequence:
-                _timePassed += dt;
+                {
+                    _timePassed += dt;
 
-                _playerViewController.SetHandsHeight(_handsHeight * (1f - _timePassed / _deathSequenceDuration));
+                    _playerViewController.SetHandsHeight(_handsHeight * (1f - _timePassed / _winSequenceDuration));
+                    _playerViewController.SetHandsForward(_handsForward - _lastSequenceDurationCurve.Evaluate(_timePassed / _winSequenceDuration) * (15f));
 
-                break;
+                    break;
+                }
             case State.WinSequence:
-                _timePassed += dt;
+                {
+                    _timePassed += dt;
 
-                _playerViewController.SetHandsHeight(_handsHeight * (1f - _timePassed / _winSequenceDuration));
+                    _playerViewController.SetHandsHeight(_handsHeight * (1f - _timePassed / _winSequenceDuration));
+                    _playerViewController.SetHandsForward(_handsForward - _lastSequenceDurationCurve.Evaluate(_timePassed / _winSequenceDuration) * (15f));
 
-                break;
+                    break;
+                }
         }
     }
 

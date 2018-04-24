@@ -73,10 +73,22 @@ public class PlayerViewController : MonoBehaviour
         return _view.localPosition.y;
     }
 
+    public float GetHandsForward()
+    {
+        return _view.localPosition.z;
+    }
+
     public void SetHandsHeight(float height)
     {
         var position = _view.localPosition;
         position.y = height;
+        _view.localPosition = position;
+    }
+
+    public void SetHandsForward(float forward)
+    {
+        var position = _view.localPosition;
+        position.z = forward;
         _view.localPosition = position;
     }
 

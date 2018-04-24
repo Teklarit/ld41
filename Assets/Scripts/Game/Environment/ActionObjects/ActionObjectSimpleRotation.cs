@@ -29,7 +29,6 @@ public class ActionObjectSimpleRotation : ActionObject
         _audioSource.clip = _audioClip;
         _audioSource.Play();
     }
-
      
     public override void Update()
     {
