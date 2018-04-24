@@ -55,6 +55,26 @@ public class EnemyController : MonoBehaviour
                 _animator.SetTrigger("Idle");
         }
         _prevStatAttack = isNowAttack;
+
+        var playerController = FindObjectOfType<PlayerController>();
+        if (playerController)
+        {
+            var dist = (playerController.transform.position - transform.position).magnitude;
+            if (dist <= 2)
+            {
+                var playerStatsController = FindObjectOfType<PlayerStatsController>();
+                if (playerStatsController.Brightness > 0.65)
+                {
+                    Damage(200);
+                }
+                else
+                {
+                    playerStatsController.SetFearMultiplier(5);
+                }
+                
+            }
+        }
+        
     }
 
     private void CheckPostDeathLifespan()
