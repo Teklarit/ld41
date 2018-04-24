@@ -2987,9 +2987,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c2e8fbe4b52649b4397491ae3c20f304, type: 3}
   - {fileID: 8300000, guid: 6c3085208c37148468fe1837c11a3384, type: 3}
   _heartbeatAudioClips:
-  - {fileID: 8300000, guid: d7c1baceadfcfe24dade1a5b581c9372, type: 3}
-  _firstHeartBeatTime: 1.9
-  _secondHeartBeatTime: 2.2
+  - {fileID: 8300000, guid: a3fea6f861bc03947a0c515f5243a92f, type: 3}
+  _firstHeartBeatTime: 1.7
+  _secondHeartBeatTime: 2.4
 --- !u!114 &114304071861904958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3047,8 +3047,8 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 0.81849426
-      outSlope: 0.81849426
+      inSlope: 0.34944516
+      outSlope: 0.34944516
       tangentMode: 0
     - serializedVersion: 2
       time: 1
