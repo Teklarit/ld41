@@ -174,7 +174,8 @@ public class PlayerStatsController : MonoBehaviour
 
     public float HealthPart
     {
-        get { return (_health / _heartbeatStats[_heartbeatLevel].MaxHealth / _heartbeatStats.Length) + ((1f / _heartbeatStats.Length) * (_heartbeatLevel)); }
+        //get { return (_health / _heartbeatStats[_heartbeatLevel].MaxHealth / _heartbeatStats.Length) + ((1f / _heartbeatStats.Length) * (_heartbeatLevel)); }
+        get { return _health / _heartbeatStats[_heartbeatLevel].MaxHealth / _heartbeatStats.Length * (_heartbeatLevel + 1); }
     }
 
     public float HeartbeatProgressPart
@@ -184,7 +185,8 @@ public class PlayerStatsController : MonoBehaviour
 
     public float BrightnessPart
     {
-        get { return (_brightness / _lightStats[_lightLevel].MaxBrightness / _lightStats.Length) + ((1f / _lightStats.Length) * (_lightLevel)); }
+        //get { return (_brightness / _lightStats[_lightLevel].MaxBrightness / _lightStats.Length) + ((1f / _lightStats.Length) * (_lightLevel)); }
+        get { return _brightness / _lightStats[_lightLevel].MaxBrightness / _lightStats.Length * (_lightLevel + 1); }
     }
 
     public float LightProgressPart

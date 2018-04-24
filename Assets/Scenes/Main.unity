@@ -3797,7 +3797,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 676ceadf0bcf9a940bc7523879ee36f4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3808,7 +3808,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 10
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -3816,20 +3816,38 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0
+      time: 0.1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -10.0039835
+      outSlope: -10.0039835
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.15677185
+      value: 0.5
+      inSlope: -6.3638206
+      outSlope: -6.3638206
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.22997132
+      value: 0.21177673
+      inSlope: -1.7378584
+      outSlope: -1.7378584
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.44263917
+      value: 0.03579712
+      inSlope: -0.15631224
+      outSlope: -0.15631224
       tangentMode: 0
     - serializedVersion: 2
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.10003988
+      outSlope: -0.10003988
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -7635,7 +7653,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 676ceadf0bcf9a940bc7523879ee36f4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7646,7 +7664,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 10
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -7654,20 +7672,38 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0
+      time: 0.1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -10.0039835
+      outSlope: -10.0039835
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.15677185
+      value: 0.5
+      inSlope: -6.3638206
+      outSlope: -6.3638206
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.22997132
+      value: 0.21177673
+      inSlope: -1.7378584
+      outSlope: -1.7378584
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.44263917
+      value: 0.03579712
+      inSlope: -0.15631224
+      outSlope: -0.15631224
       tangentMode: 0
     - serializedVersion: 2
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.10003988
+      outSlope: -0.10003988
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -9050,7 +9086,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 676ceadf0bcf9a940bc7523879ee36f4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9061,7 +9097,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 10
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -9069,20 +9105,38 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0
+      time: 0.1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -10.0039835
+      outSlope: -10.0039835
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.15677185
+      value: 0.5
+      inSlope: -6.3638206
+      outSlope: -6.3638206
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.22997132
+      value: 0.21177673
+      inSlope: -1.7378584
+      outSlope: -1.7378584
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.44263917
+      value: 0.03579712
+      inSlope: -0.15631224
+      outSlope: -0.15631224
       tangentMode: 0
     - serializedVersion: 2
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.10003988
+      outSlope: -0.10003988
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
