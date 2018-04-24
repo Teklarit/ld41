@@ -206,6 +206,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 82254766007371514, guid: c1451f4ff6a34b04d8b7edcbae57a8f7,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1451f4ff6a34b04d8b7edcbae57a8f7, type: 2}
   m_IsPrefabParent: 0
@@ -499,6 +504,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1621973662042248, guid: 3939a674a5afe6a40a7e434c2835a04e, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82948749718715136, guid: 3939a674a5afe6a40a7e434c2835a04e,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82037517775655048, guid: 3939a674a5afe6a40a7e434c2835a04e,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1038,6 +1053,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 82469332936483472, guid: 7017403949f9faf41b85855ba67a6984,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7017403949f9faf41b85855ba67a6984, type: 2}
   m_IsPrefabParent: 0
@@ -1529,6 +1549,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82254766007371514, guid: c1451f4ff6a34b04d8b7edcbae57a8f7,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1451f4ff6a34b04d8b7edcbae57a8f7, type: 2}
   m_IsPrefabParent: 0
@@ -1597,6 +1622,11 @@ Prefab:
     - target: {fileID: 4103080580017376, guid: c1451f4ff6a34b04d8b7edcbae57a8f7, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 82254766007371514, guid: c1451f4ff6a34b04d8b7edcbae57a8f7,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1451f4ff6a34b04d8b7edcbae57a8f7, type: 2}
@@ -1988,6 +2018,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 23
       objectReference: {fileID: 0}
+    - target: {fileID: 82948749718715136, guid: 3939a674a5afe6a40a7e434c2835a04e,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82037517775655048, guid: 3939a674a5afe6a40a7e434c2835a04e,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3939a674a5afe6a40a7e434c2835a04e, type: 2}
   m_IsPrefabParent: 0
@@ -2118,6 +2158,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4103080580017376, guid: c1451f4ff6a34b04d8b7edcbae57a8f7, type: 2}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82254766007371514, guid: c1451f4ff6a34b04d8b7edcbae57a8f7,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3231,6 +3276,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 82948749718715136, guid: 3939a674a5afe6a40a7e434c2835a04e,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82037517775655048, guid: 3939a674a5afe6a40a7e434c2835a04e,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3939a674a5afe6a40a7e434c2835a04e, type: 2}
   m_IsPrefabParent: 0
@@ -3742,7 +3797,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 676ceadf0bcf9a940bc7523879ee36f4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3750,7 +3805,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 4
+  MinDistance: 1
   MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
@@ -3935,6 +3990,11 @@ Prefab:
         type: 2}
       propertyPath: _maxOpenAngle
       value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 82254766007371514, guid: c1451f4ff6a34b04d8b7edcbae57a8f7,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1451f4ff6a34b04d8b7edcbae57a8f7, type: 2}
@@ -4886,11 +4946,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 29a92dc488063844ca15fc006272561e, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7458,6 +7518,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82254766007371514, guid: c1451f4ff6a34b04d8b7edcbae57a8f7,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1451f4ff6a34b04d8b7edcbae57a8f7, type: 2}
   m_IsPrefabParent: 0
@@ -7570,7 +7635,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 676ceadf0bcf9a940bc7523879ee36f4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7578,7 +7643,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 4
+  MinDistance: 1
   MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
@@ -8399,6 +8464,11 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0.123
       objectReference: {fileID: 0}
+    - target: {fileID: 82948749718715136, guid: 3939a674a5afe6a40a7e434c2835a04e,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3939a674a5afe6a40a7e434c2835a04e, type: 2}
   m_IsPrefabParent: 0
@@ -8980,7 +9050,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 676ceadf0bcf9a940bc7523879ee36f4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8988,7 +9058,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 4
+  MinDistance: 1
   MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
@@ -9152,6 +9222,11 @@ Prefab:
         type: 2}
       propertyPath: _maxOpenAngle
       value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 82254766007371514, guid: c1451f4ff6a34b04d8b7edcbae57a8f7,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1451f4ff6a34b04d8b7edcbae57a8f7, type: 2}
@@ -9360,6 +9435,16 @@ Prefab:
         type: 2}
       propertyPath: _maxOpenAngle
       value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 82948749718715136, guid: 3939a674a5afe6a40a7e434c2835a04e,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82037517775655048, guid: 3939a674a5afe6a40a7e434c2835a04e,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3939a674a5afe6a40a7e434c2835a04e, type: 2}
@@ -12653,6 +12738,11 @@ Prefab:
       propertyPath: _maxOpenAngle
       value: 95
       objectReference: {fileID: 0}
+    - target: {fileID: 82254766007371514, guid: c1451f4ff6a34b04d8b7edcbae57a8f7,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1451f4ff6a34b04d8b7edcbae57a8f7, type: 2}
   m_IsPrefabParent: 0
@@ -13194,6 +13284,11 @@ Prefab:
       propertyPath: _maxOpenAngle
       value: 95
       objectReference: {fileID: 0}
+    - target: {fileID: 82254766007371514, guid: c1451f4ff6a34b04d8b7edcbae57a8f7,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1451f4ff6a34b04d8b7edcbae57a8f7, type: 2}
   m_IsPrefabParent: 0
@@ -13607,6 +13702,11 @@ Prefab:
         type: 2}
       propertyPath: _maxOpenAngle
       value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 82254766007371514, guid: c1451f4ff6a34b04d8b7edcbae57a8f7,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1451f4ff6a34b04d8b7edcbae57a8f7, type: 2}

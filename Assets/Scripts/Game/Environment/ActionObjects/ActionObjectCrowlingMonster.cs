@@ -12,7 +12,7 @@ public class ActionObjectCrowlingMonster : ActionObject
     {
         base.Activate(activateType, time);
 
-        _audioSource.PlayOneShot(_runClip);
+        _audioSource.Play();
         _needMove = true;
     }
 
@@ -25,6 +25,7 @@ public class ActionObjectCrowlingMonster : ActionObject
             _timeCrowle -= Time.deltaTime;
             if (_timeCrowle <= 0.0f)
             {
+                _audioSource.Stop();
                 _needMove = false;
             }
 
