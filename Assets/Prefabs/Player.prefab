@@ -3040,15 +3040,15 @@ MonoBehaviour:
   _playerStatsController: {fileID: 114086085572350840}
   _playerAnimationController: {fileID: 114567436201317256}
   _flashlightSpotlight: {fileID: 108910726805026636}
-  _flashlightSpotlightMaxIntensity: 1.8
+  _flashlightSpotlightMaxIntensity: 2
   _flashlightSpotlightCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0
+      time: -0.00076293945
       value: 0
-      inSlope: 0.34944516
-      outSlope: 0.34944516
+      inSlope: 0.8724662
+      outSlope: 0.8724662
       tangentMode: 0
     - serializedVersion: 2
       time: 1
