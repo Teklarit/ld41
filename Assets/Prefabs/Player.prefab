@@ -2524,7 +2524,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1635773309442386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.547, y: -3.592, z: 3.044}
+  m_LocalPosition: {x: -2.02, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4700947008410538}
@@ -2959,11 +2959,11 @@ MonoBehaviour:
   - MaxBrightness: 0.8
     BrightnessLoseRate: 1.5
     BrightnessGainPerClick: 0.3
-    LightClicksTillNextLevel: 200
+    LightClicksTillNextLevel: 250
   - MaxBrightness: 1
     BrightnessLoseRate: 1.8
     BrightnessGainPerClick: 0.4
-    LightClicksTillNextLevel: 200
+    LightClicksTillNextLevel: 300
   _heartbeatsSequenceDuration: 3
   _firstHeartbeatBeginTime: 1.5
   _firstHeartbeatEndTime: 2
@@ -2973,7 +2973,12 @@ MonoBehaviour:
   _fearLossRate: 0.25
   _audioSource: {fileID: 82084641957391486}
   _enemaSqueezeAudioClips:
-  - {fileID: 8300000, guid: 2a9655189d641ca46975db87efbb2be2, type: 3}
+  - {fileID: 8300000, guid: 5aaac69ccff215c4395c086def11eb55, type: 3}
+  - {fileID: 8300000, guid: ff9f4b27e90f73f41a188c23bdd2bd19, type: 3}
+  - {fileID: 8300000, guid: 9349f29b170616a419f54452aed85fcd, type: 3}
+  - {fileID: 8300000, guid: c46a3d1a7e39b3643bb0f62254d90dae, type: 3}
+  - {fileID: 8300000, guid: c10ec72f217c33e4299363320585700b, type: 3}
+  - {fileID: 8300000, guid: 1bd72ae7a5721814cb1cd07316a4bc19, type: 3}
   _flashlightSqueezeAudioClips:
   - {fileID: 8300000, guid: 889cc188898cd224b870371d1086bd1c, type: 3}
   - {fileID: 8300000, guid: f722496e31182f049a1a66e8fe9cb381, type: 3}
@@ -3105,7 +3110,7 @@ MonoBehaviour:
   _shoulderMovementLerpCoef: 5
   _attractionRadiusMultiplier: 5
   _deathSequenceDuration: 3
-  _winSequenceDuration: 3
+  _winSequenceDuration: 20
 --- !u!114 &114567436201317256
 MonoBehaviour:
   m_ObjectHideFlags: 1
