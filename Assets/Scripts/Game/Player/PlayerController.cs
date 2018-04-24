@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviour
     public void LaunchWinSequence()
     {
         _state = State.WinSequence;
+        _handsHeight = _playerViewController.GetHandsHeight();
     }
 
     public bool WinSequenceEnded
@@ -158,6 +159,8 @@ public class PlayerController : MonoBehaviour
                 break;
             case State.WinSequence:
                 _timePassed += dt;
+
+                _playerViewController.SetHandsHeight(_handsHeight * (1f - _timePassed / _winSequenceDuration));
 
                 break;
         }
