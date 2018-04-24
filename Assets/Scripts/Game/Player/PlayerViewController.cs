@@ -17,8 +17,8 @@ public class PlayerViewController : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip[] _footstepsAudioClips;
 
-    private float sensitivityX = 100.0f;
-    private float sensitivityY = 100.0f;
+    private float sensitivityX = 160.0f;
+    private float sensitivityY = 160.0f;
 
     private float minimumX = 0f;
     private float maximumX = 360f;
