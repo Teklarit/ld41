@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2050815332}
-  m_IndirectSpecularColor: {r: 0.07036909, g: 0.13691357, b: 0.32416937, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1376,7 +1376,7 @@ Prefab:
     - target: {fileID: 114910044459635320, guid: 2bcc93da68feea449a3601514c5a0e79,
         type: 2}
       propertyPath: _fearPower
-      value: 6
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 82598304858871152, guid: 2bcc93da68feea449a3601514c5a0e79,
         type: 2}
@@ -1887,7 +1887,7 @@ Prefab:
     - target: {fileID: 114910044459635320, guid: 2bcc93da68feea449a3601514c5a0e79,
         type: 2}
       propertyPath: _fearPower
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 82598304858871152, guid: 2bcc93da68feea449a3601514c5a0e79,
         type: 2}
@@ -2607,7 +2607,7 @@ Prefab:
     - target: {fileID: 114092685024367478, guid: 2b7620bbf4a9ceb4b802dee52088441e,
         type: 2}
       propertyPath: _fearPower
-      value: 4
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b7620bbf4a9ceb4b802dee52088441e, type: 2}
@@ -3216,7 +3216,7 @@ Prefab:
     - target: {fileID: 114942353087830560, guid: b7966655ca78fe94192e965349c8ccb2,
         type: 2}
       propertyPath: _fearPower
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 82470960087298466, guid: b7966655ca78fe94192e965349c8ccb2,
         type: 2}
@@ -3772,6 +3772,11 @@ Prefab:
         type: 2}
       propertyPath: _brightnessToDie
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114849398135630606, guid: 0677022b8b99d1347b3f00cc6c5367a6,
+        type: 2}
+      propertyPath: _fearDamage
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0677022b8b99d1347b3f00cc6c5367a6, type: 2}
@@ -4924,7 +4929,7 @@ Prefab:
     - target: {fileID: 114310644488820626, guid: ad6d1b4f176d2874491e934d1c52eb58,
         type: 2}
       propertyPath: _fearPower
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114310644488820626, guid: ad6d1b4f176d2874491e934d1c52eb58,
         type: 2}
@@ -7627,7 +7632,7 @@ Prefab:
     - target: {fileID: 114849398135630606, guid: 0677022b8b99d1347b3f00cc6c5367a6,
         type: 2}
       propertyPath: _fearDamage
-      value: 4
+      value: 2.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0677022b8b99d1347b3f00cc6c5367a6, type: 2}
@@ -7794,6 +7799,11 @@ Prefab:
     - target: {fileID: 4772140851951276, guid: 97be5859aef232a4ca516383d10b8fa1, type: 2}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114164918520394774, guid: 97be5859aef232a4ca516383d10b8fa1,
+        type: 2}
+      propertyPath: _fearPower
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97be5859aef232a4ca516383d10b8fa1, type: 2}
@@ -8635,7 +8645,7 @@ Prefab:
     - target: {fileID: 114653798449496062, guid: b16990cecd45f68488ad5bf33fd6a627,
         type: 2}
       propertyPath: _fearPower
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b16990cecd45f68488ad5bf33fd6a627, type: 2}
@@ -9060,7 +9070,7 @@ Prefab:
     - target: {fileID: 114849398135630606, guid: 0677022b8b99d1347b3f00cc6c5367a6,
         type: 2}
       propertyPath: _fearDamage
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0677022b8b99d1347b3f00cc6c5367a6, type: 2}
@@ -9342,7 +9352,7 @@ Prefab:
     - target: {fileID: 114653798449496062, guid: b16990cecd45f68488ad5bf33fd6a627,
         type: 2}
       propertyPath: _fearPower
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b16990cecd45f68488ad5bf33fd6a627, type: 2}
@@ -12648,6 +12658,11 @@ Prefab:
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114760275324279216, guid: 3939a674a5afe6a40a7e434c2835a04e,
+        type: 2}
+      propertyPath: _fearPower
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3939a674a5afe6a40a7e434c2835a04e, type: 2}
   m_IsPrefabParent: 0
@@ -13684,7 +13699,7 @@ Prefab:
     - target: {fileID: 114232408610061448, guid: 65735761b7b299f4692471ad9be1d485,
         type: 2}
       propertyPath: _fearPower
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 82332252791949180, guid: 65735761b7b299f4692471ad9be1d485,
         type: 2}
