@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
     private bool _shouldersInitialized;
 
     private bool _playerWon;
+    private float _handsHeight;
 
     public void Init()
     {
@@ -89,6 +90,7 @@ public class PlayerController : MonoBehaviour
     public void LaunchDeathSequence()
     {
         _state = State.DeathSequence;
+        _handsHeight = _playerViewController.GetHandsHeight();
     }
 
     public bool DeathSequenceEnded
@@ -150,6 +152,8 @@ public class PlayerController : MonoBehaviour
                 break;
             case State.DeathSequence:
                 _timePassed += dt;
+
+                _playerViewController.SetHandsHeight(_handsHeight * (1f - _timePassed / _deathSequenceDuration));
 
                 break;
             case State.WinSequence:

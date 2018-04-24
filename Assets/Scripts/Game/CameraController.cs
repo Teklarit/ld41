@@ -56,8 +56,8 @@ public class CameraController : MonoBehaviour
             case State.DeathSequence:
                 _timePassed += dt;
 
-                _mainCamera.transform.position = _playerViewController.ViewPosition;
-                _mainCamera.transform.rotation = _playerViewController.ViewRotation;
+                //_mainCamera.transform.position = _playerViewController.ViewPosition;
+                //_mainCamera.transform.rotation = _playerViewController.ViewRotation;
 
                 // TODO:
 
@@ -65,8 +65,8 @@ public class CameraController : MonoBehaviour
             case State.WinSequence:
                 _timePassed += dt;
 
-                _mainCamera.transform.position = _playerViewController.ViewPosition;
-                _mainCamera.transform.rotation = _playerViewController.ViewRotation;
+                //_mainCamera.transform.position = _playerViewController.ViewPosition;
+                //_mainCamera.transform.rotation = _playerViewController.ViewRotation;
 
                 // TODO:
 

@@ -105,7 +105,7 @@ public class PlayerStatsController : MonoBehaviour
             ++_heartbeatLevel;
         }
 
-        _audioSource.PlayOneShot(_enemaSqueezeAudioClips[Random.Range(0, _enemaSqueezeAudioClips.Length)]);
+        _audioSource.PlayOneShot(_enemaSqueezeAudioClips[Random.Range(0, _enemaSqueezeAudioClips.Length)], 0.5f);
         _healthClickedLastFrame = true;
     }
 
@@ -123,7 +123,7 @@ public class PlayerStatsController : MonoBehaviour
             ++_lightLevel;
         }
 
-        _audioSource.PlayOneShot(_flashlightSqueezeAudioClips[Random.Range(0, _flashlightSqueezeAudioClips.Length)]);
+        _audioSource.PlayOneShot(_flashlightSqueezeAudioClips[Random.Range(0, _flashlightSqueezeAudioClips.Length)], 0.02f);
         _lightClickedLastFrame = true;
     }
 
@@ -279,13 +279,13 @@ public class PlayerStatsController : MonoBehaviour
 
         if (!_firstHeartbeatSoundPlayed && _heartbeatTimePassed >= _firstHeartBeatTime)
         {
-            _audioSource.PlayOneShot(_heartbeatAudioClips[Random.Range(0, _heartbeatAudioClips.Length)]);
+            _audioSource.PlayOneShot(_heartbeatAudioClips[Random.Range(0, _heartbeatAudioClips.Length)], 1f);
             _firstHeartbeatSoundPlayed = true;
         }
 
         if (!_secondHeartbeatSoundPlayed && _heartbeatTimePassed >= _secondHeartBeatTime)
         {
-            _audioSource.PlayOneShot(_heartbeatAudioClips[Random.Range(0, _heartbeatAudioClips.Length)]);
+            _audioSource.PlayOneShot(_heartbeatAudioClips[Random.Range(0, _heartbeatAudioClips.Length)], 1f);
             _secondHeartbeatSoundPlayed = true;
         }
 

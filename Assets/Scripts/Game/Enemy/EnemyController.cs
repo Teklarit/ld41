@@ -8,6 +8,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemyAI _ai;
     [SerializeField] private Animator _animator;
     [SerializeField] private Renderer _monsterRenderer;
+    [SerializeField] private float _brightnessToDie = 0.65f;
+    [SerializeField] private float _fearDamage = 5f;
 
     private bool _prevStatAttack = false;
 
@@ -63,13 +65,13 @@ public class EnemyController : MonoBehaviour
             if (dist <= 2)
             {
                 var playerStatsController = FindObjectOfType<PlayerStatsController>();
-                if (playerStatsController.Brightness > 0.65)
+                if (playerStatsController.Brightness > _brightnessToDie)
                 {
                     Damage(200);
                 }
                 else
                 {
-                    playerStatsController.SetFearMultiplier(5);
+                    playerStatsController.SetFearMultiplier(_fearDamage);
                 }
                 
             }

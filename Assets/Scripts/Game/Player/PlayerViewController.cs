@@ -68,6 +68,18 @@ public class PlayerViewController : MonoBehaviour
         _view.eulerAngles = new Vector3(-rotationY, rotationX, 0f);
     }
 
+    public float GetHandsHeight()
+    {
+        return _view.localPosition.y;
+    }
+
+    public void SetHandsHeight(float height)
+    {
+        var position = _view.localPosition;
+        position.y = height;
+        _view.localPosition = position;
+    }
+
     public void CustomLateUpdate(float dt)
     {
         var speedMultiplier = _playerMovementController.SpeedPart;

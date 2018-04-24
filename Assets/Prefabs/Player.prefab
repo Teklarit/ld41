@@ -2523,14 +2523,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1635773309442386}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.02, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.9840346, z: -0, w: 0.17797734}
+  m_LocalPosition: {x: -1.369, y: 0, z: 2.492}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4700947008410538}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -159.496, z: 0}
 --- !u!4 &4921806504812344
 Transform:
   m_ObjectHideFlags: 1
@@ -2937,19 +2937,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375afae034f6aa445862cfae7c563438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _god: 1
+  _god: 0
   _heartbeatStats:
   - MaxHealth: 0.5
     HealthLoseRate: 0.05
-    HealthGainPerClick: 0.1
+    HealthGainPerClick: 0.2
     HeartbeatClicksTillNextLevel: 60
   - MaxHealth: 0.75
-    HealthLoseRate: 0.12
-    HealthGainPerClick: 0.1
+    HealthLoseRate: 0.08
+    HealthGainPerClick: 0.25
     HeartbeatClicksTillNextLevel: 100
   - MaxHealth: 1
-    HealthLoseRate: 0.06
-    HealthGainPerClick: 0.1
+    HealthLoseRate: 0.12
+    HealthGainPerClick: 0.3
     HeartbeatClicksTillNextLevel: 140
   _lightStats:
   - MaxBrightness: 0.6
@@ -2967,8 +2967,8 @@ MonoBehaviour:
   _heartbeatsSequenceDuration: 3
   _firstHeartbeatBeginTime: 1.5
   _firstHeartbeatEndTime: 2
-  _secondHeartbeatBeginTime: 2.1
-  _secondHeartbeatEndTime: 2.6
+  _secondHeartbeatBeginTime: 2.2
+  _secondHeartbeatEndTime: 2.7
   _fearMultiplierLerpCoef: 20
   _fearLossRate: 0.25
   _audioSource: {fileID: 82084641957391486}
@@ -2988,8 +2988,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6c3085208c37148468fe1837c11a3384, type: 3}
   _heartbeatAudioClips:
   - {fileID: 8300000, guid: d7c1baceadfcfe24dade1a5b581c9372, type: 3}
-  - {fileID: 8300000, guid: c819fa840c97a27458747671ab5a4341, type: 3}
-  - {fileID: 8300000, guid: e7827daf666c9fa449bfc8d14fea3209, type: 3}
   _firstHeartBeatTime: 1.9
   _secondHeartBeatTime: 2.2
 --- !u!114 &114304071861904958
@@ -3035,7 +3033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867285f2a2514aa489d7b7f17b8c82a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _autoClick: 1
+  _autoClick: 0
   _autoClickDuration: 0.15
   _playerMovementController: {fileID: 114916874955254208}
   _playerViewController: {fileID: 114304071861904958}
@@ -3049,14 +3047,14 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.81849426
+      outSlope: 0.81849426
       tangentMode: 0
     - serializedVersion: 2
       time: 1
       value: 1
-      inSlope: 2
-      outSlope: 2
+      inSlope: 1.2162074
+      outSlope: 1.2162074
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 33442805469166396}
   - component: {fileID: 23942317041653174}
   - component: {fileID: 95116467148822816}
+  - component: {fileID: 111268321353886034}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Untagged
@@ -51,14 +52,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1012359799829972}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.18, y: 0, z: -2.43}
+  m_LocalRotation: {x: -0, y: -0.96500814, z: -0, w: 0.26222}
+  m_LocalPosition: {x: 1.159, y: -3.4000146, z: -1.735}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4955312325137118}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -149.59601, z: 0}
 --- !u!4 &4955312325137118
 Transform:
   m_ObjectHideFlags: 1
@@ -130,6 +131,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!111 &111268321353886034
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1196922504633862}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 46919cdcd762afc458f2e3ce0b617124, type: 2}
+  - {fileID: 7400000, guid: 282d9d1b843558647b88fd05d96f3ad1, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114653798449496062
 MonoBehaviour:
   m_ObjectHideFlags: 1
