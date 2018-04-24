@@ -2940,37 +2940,37 @@ MonoBehaviour:
   _god: 0
   _heartbeatStats:
   - MaxHealth: 0.5
-    HealthLoseRate: 0.05
+    HealthLoseRate: 0.03
     HealthGainPerClick: 0.2
     HeartbeatClicksTillNextLevel: 60
   - MaxHealth: 0.75
-    HealthLoseRate: 0.08
+    HealthLoseRate: 0.05
     HealthGainPerClick: 0.25
     HeartbeatClicksTillNextLevel: 100
   - MaxHealth: 1
-    HealthLoseRate: 0.12
+    HealthLoseRate: 0.08
     HealthGainPerClick: 0.3
     HeartbeatClicksTillNextLevel: 140
   _lightStats:
-  - MaxBrightness: 0.6
+  - MaxBrightness: 0.65
     BrightnessLoseRate: 0.9
-    BrightnessGainPerClick: 0.2
-    LightClicksTillNextLevel: 200
-  - MaxBrightness: 0.8
-    BrightnessLoseRate: 1.5
     BrightnessGainPerClick: 0.3
+    LightClicksTillNextLevel: 200
+  - MaxBrightness: 0.825
+    BrightnessLoseRate: 1.5
+    BrightnessGainPerClick: 0.4
     LightClicksTillNextLevel: 250
   - MaxBrightness: 1
     BrightnessLoseRate: 1.8
-    BrightnessGainPerClick: 0.4
+    BrightnessGainPerClick: 0.5
     LightClicksTillNextLevel: 300
   _heartbeatsSequenceDuration: 3
-  _firstHeartbeatBeginTime: 1.5
-  _firstHeartbeatEndTime: 2
-  _secondHeartbeatBeginTime: 2.2
-  _secondHeartbeatEndTime: 2.7
+  _firstHeartbeatBeginTime: 1.4
+  _firstHeartbeatEndTime: 2.1
+  _secondHeartbeatBeginTime: 2.1
+  _secondHeartbeatEndTime: 2.8
   _fearMultiplierLerpCoef: 20
-  _fearLossRate: 0.25
+  _fearLossRate: 0.4
   _audioSource: {fileID: 82084641957391486}
   _enemaSqueezeAudioClips:
   - {fileID: 8300000, guid: 5aaac69ccff215c4395c086def11eb55, type: 3}

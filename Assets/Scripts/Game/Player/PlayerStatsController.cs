@@ -95,7 +95,7 @@ public class PlayerStatsController : MonoBehaviour
     {
         ++_heartbeatClickedThisLevel;
         ++_heartbeatClickedTotal;
-        _health += _heartbeatStats[_heartbeatLevel].HealthGainPerClick * (HeartbeatOnTime() ? 1f : -0.5f);
+        _health += _heartbeatStats[_heartbeatLevel].HealthGainPerClick * (HeartbeatOnTime() ? 1f : -0.25f);
         _health = Mathf.Min(_health, _heartbeatStats[_heartbeatLevel].MaxHealth);
 
         var clicksTillNextLevel = _heartbeatStats[_heartbeatLevel].HeartbeatClicksTillNextLevel;
@@ -262,6 +262,7 @@ public class PlayerStatsController : MonoBehaviour
     public void CustomUpdate(float dt)
     {
         _fearMultiplier = Mathf.Lerp(_fearMultiplier, _targetFearMultiplier, Mathf.Clamp01(_fearMultiplierLerpCoef * dt));
+        _fearMultiplier = Mathf.Max(_fearMultiplier, 1f);
 
         _targetFearMultiplier -= _fearLossRate * dt;
         _targetFearMultiplier = Mathf.Max(_targetFearMultiplier, 1f);

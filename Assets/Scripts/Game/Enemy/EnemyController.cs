@@ -62,21 +62,17 @@ public class EnemyController : MonoBehaviour
         if (playerController)
         {
             var dist = (playerController.transform.position - transform.position).magnitude;
-            if (dist <= 2)
+            if (dist <= 2f)
             {
-                var playerStatsController = FindObjectOfType<PlayerStatsController>();
+                var playerStatsController = playerController.GetComponent<PlayerStatsController>();
+                playerStatsController.SetFearMultiplier(_fearDamage);
+
                 if (playerStatsController.Brightness > _brightnessToDie)
                 {
-                    Damage(200);
+                    Damage(75f * Time.deltaTime);
                 }
-                else
-                {
-                    playerStatsController.SetFearMultiplier(_fearDamage);
-                }
-                
             }
         }
-        
     }
 
     private void CheckPostDeathLifespan()
