@@ -2524,7 +2524,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1635773309442386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.818, y: 0, z: 0}
+  m_LocalPosition: {x: 5.547, y: -3.592, z: 3.044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4700947008410538}
@@ -2972,11 +2972,19 @@ MonoBehaviour:
   _fearMultiplierLerpCoef: 20
   _fearLossRate: 0.25
   _audioSource: {fileID: 82084641957391486}
-  _enemaSqueezeAudioClip: {fileID: 8300000, guid: 2a9655189d641ca46975db87efbb2be2,
-    type: 3}
-  _flashlightSqueezeAudioClip: {fileID: 8300000, guid: 2a9655189d641ca46975db87efbb2be2,
-    type: 3}
-  _heartbeatAudioClip: {fileID: 8300000, guid: 2a9655189d641ca46975db87efbb2be2, type: 3}
+  _enemaSqueezeAudioClips:
+  - {fileID: 8300000, guid: 2a9655189d641ca46975db87efbb2be2, type: 3}
+  _flashlightSqueezeAudioClips:
+  - {fileID: 8300000, guid: 889cc188898cd224b870371d1086bd1c, type: 3}
+  - {fileID: 8300000, guid: f722496e31182f049a1a66e8fe9cb381, type: 3}
+  - {fileID: 8300000, guid: 7e90e90c0eb802248a6aa0a308f5fc59, type: 3}
+  - {fileID: 8300000, guid: a23b876f1609d0b408db1d794233ff4b, type: 3}
+  - {fileID: 8300000, guid: c2e8fbe4b52649b4397491ae3c20f304, type: 3}
+  - {fileID: 8300000, guid: 6c3085208c37148468fe1837c11a3384, type: 3}
+  _heartbeatAudioClips:
+  - {fileID: 8300000, guid: d7c1baceadfcfe24dade1a5b581c9372, type: 3}
+  - {fileID: 8300000, guid: c819fa840c97a27458747671ab5a4341, type: 3}
+  - {fileID: 8300000, guid: e7827daf666c9fa449bfc8d14fea3209, type: 3}
   _firstHeartBeatTime: 1.9
   _secondHeartBeatTime: 2.2
 --- !u!114 &114304071861904958
@@ -3002,7 +3010,15 @@ MonoBehaviour:
   _firstFootstepTime: 0.3
   _secondFootstepTime: 0.9
   _audioSource: {fileID: 82084641957391486}
-  _footstepsAudioClip: {fileID: 8300000, guid: 2a9655189d641ca46975db87efbb2be2, type: 3}
+  _footstepsAudioClips:
+  - {fileID: 8300000, guid: 146dcf04ecdbf944882371e0a34dc99c, type: 3}
+  - {fileID: 8300000, guid: 37903cc8d37e14f41b239d43ffe0cb88, type: 3}
+  - {fileID: 8300000, guid: 45a2beb33324c8646a25a2bc513d7afc, type: 3}
+  - {fileID: 8300000, guid: 5f8fdfca56e5efb489ec09b334ed9e72, type: 3}
+  - {fileID: 8300000, guid: 2f4bd1768742b97448b3402816a41001, type: 3}
+  - {fileID: 8300000, guid: 132b812b3e2fd77449b4b25ad1980293, type: 3}
+  - {fileID: 8300000, guid: 81d6cca0b9bf11148a92dc29ea00b31d, type: 3}
+  - {fileID: 8300000, guid: 372e244cb5dbf6b459bb67f07958a1c8, type: 3}
 --- !u!114 &114533830785713142
 MonoBehaviour:
   m_ObjectHideFlags: 1

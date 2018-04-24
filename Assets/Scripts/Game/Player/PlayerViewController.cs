@@ -15,7 +15,7 @@ public class PlayerViewController : MonoBehaviour
     [SerializeField] private float _firstFootstepTime;
     [SerializeField] private float _secondFootstepTime;
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip _footstepsAudioClip;
+    [SerializeField] private AudioClip[] _footstepsAudioClips;
 
     private float sensitivityX = 100.0f;
     private float sensitivityY = 100.0f;
@@ -110,13 +110,13 @@ public class PlayerViewController : MonoBehaviour
 
         if (!_firstFootstepPlayed && _stepTimePassed >= _firstFootstepTime)
         {
-            _audioSource.PlayOneShot(_footstepsAudioClip);
+            _audioSource.PlayOneShot(_footstepsAudioClips[Random.Range(0, _footstepsAudioClips.Length)]);
             _firstFootstepPlayed = true;
         }
 
         if (!_secondFootstepPlayed && _stepTimePassed >= _secondFootstepTime)
         {
-            _audioSource.PlayOneShot(_footstepsAudioClip);
+            _audioSource.PlayOneShot(_footstepsAudioClips[Random.Range(0, _footstepsAudioClips.Length)]);
             _secondFootstepPlayed = true;
         }
 

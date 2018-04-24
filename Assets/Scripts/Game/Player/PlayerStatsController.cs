@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerStatsController : MonoBehaviour
 {
@@ -35,9 +36,9 @@ public class PlayerStatsController : MonoBehaviour
 
     [Space]
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip _enemaSqueezeAudioClip;
-    [SerializeField] private AudioClip _flashlightSqueezeAudioClip;
-    [SerializeField] private AudioClip _heartbeatAudioClip;
+    [SerializeField] private AudioClip[] _enemaSqueezeAudioClips;
+    [SerializeField] private AudioClip[] _flashlightSqueezeAudioClips;
+    [SerializeField] private AudioClip[] _heartbeatAudioClips;
     [SerializeField] private float _firstHeartBeatTime;
     [SerializeField] private float _secondHeartBeatTime;
 
@@ -104,7 +105,7 @@ public class PlayerStatsController : MonoBehaviour
             ++_heartbeatLevel;
         }
 
-        _audioSource.PlayOneShot(_enemaSqueezeAudioClip);
+        _audioSource.PlayOneShot(_enemaSqueezeAudioClips[Random.Range(0, _enemaSqueezeAudioClips.Length)]);
         _healthClickedLastFrame = true;
     }
 
@@ -122,7 +123,7 @@ public class PlayerStatsController : MonoBehaviour
             ++_lightLevel;
         }
 
-        _audioSource.PlayOneShot(_flashlightSqueezeAudioClip);
+        _audioSource.PlayOneShot(_flashlightSqueezeAudioClips[Random.Range(0, _flashlightSqueezeAudioClips.Length)]);
         _lightClickedLastFrame = true;
     }
 
@@ -278,13 +279,13 @@ public class PlayerStatsController : MonoBehaviour
 
         if (!_firstHeartbeatSoundPlayed && _heartbeatTimePassed >= _firstHeartBeatTime)
         {
-            _audioSource.PlayOneShot(_heartbeatAudioClip);
+            _audioSource.PlayOneShot(_heartbeatAudioClips[Random.Range(0, _heartbeatAudioClips.Length)]);
             _firstHeartbeatSoundPlayed = true;
         }
 
         if (!_secondHeartbeatSoundPlayed && _heartbeatTimePassed >= _secondHeartBeatTime)
         {
-            _audioSource.PlayOneShot(_heartbeatAudioClip);
+            _audioSource.PlayOneShot(_heartbeatAudioClips[Random.Range(0, _heartbeatAudioClips.Length)]);
             _secondHeartbeatSoundPlayed = true;
         }
 
