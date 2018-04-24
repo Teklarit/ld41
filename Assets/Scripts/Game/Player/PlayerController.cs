@@ -54,6 +54,8 @@ public class PlayerController : MonoBehaviour
     private float _autoClickTimePassed;
     private bool _shouldersInitialized;
 
+    private bool _playerWon;
+
     public void Init()
     {
         _playerMovementController.Init();
@@ -66,6 +68,7 @@ public class PlayerController : MonoBehaviour
 
         _autoClickTimePassed = 0f;
         _shouldersInitialized = false;
+        _playerWon = false;
     }
 
     public float AttractionRadius
@@ -80,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     public bool PlayerWon
     {
-        get { return false; }
+        get { return _playerWon; }
     }
 
     public void LaunchDeathSequence()
@@ -101,6 +104,11 @@ public class PlayerController : MonoBehaviour
     public bool WinSequenceEnded
     {
         get { return _timePassed >= _winSequenceDuration; }
+    }
+
+    public void SetPlayerWon()
+    {
+        _playerWon = true;
     }
 
     public void CustomUpdate(float dt)

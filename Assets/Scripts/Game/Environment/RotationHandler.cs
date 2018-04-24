@@ -7,9 +7,11 @@ public class RotationHandler : MonoBehaviour
     private Quaternion _initialRotation;
     private Vector3 _initialUp;
     private float _angle;
+    private float _angularSpeedMult;
 
     private void Awake()
     {
+        _angularSpeedMult = 1f;
         _angle = Random.Range(0f, 360f);
         _initialUp = transform.up;
         _initialRotation = transform.localRotation;
@@ -18,8 +20,12 @@ public class RotationHandler : MonoBehaviour
 
     private void Update()
     {
-        _angle += _angularSpeed * Time.deltaTime;
+        _angle += _angularSpeed * _angularSpeedMult * Time.deltaTime;
         transform.localRotation = Quaternion.AngleAxis(_angle, _initialUp) * _initialRotation;
-        //transform.rotation *= Quaternion.AngleAxis(_angularSpeed * Time.deltaTime, _initialUp);
+    }
+
+    public void SetAngularSpeedMultiplier(float mult)
+    {
+        _angularSpeedMult = mult;
     }
 }
