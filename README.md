@@ -16,7 +16,7 @@ Game in 72 hours
 ## Video
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/WLjXzrgJE-g/0.jpg)](https://www.youtube.com/watch?v=WLjXzrgJE-g)
 
-## Creadits
+## Credits
     Mykyta Smaha
     Michael Korshunov
     Igor Baykov
