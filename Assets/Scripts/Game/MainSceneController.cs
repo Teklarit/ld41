@@ -36,13 +36,8 @@ public class MainSceneController : MonoBehaviour
 
     public void Init()
     {
-        _playerController = FindObjectOfType<PlayerController>();
         _playerController.Init();
-
-        _cameraController = FindObjectOfType<CameraController>();
         _cameraController.Init();
-
-        _hudController = FindObjectOfType<HudController>();
         _hudController.Init();
 
         _gameFsm = new FSM<GameState, GameTransition>(new Dictionary<GameState, FSMState>

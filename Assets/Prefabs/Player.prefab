@@ -2952,11 +2952,11 @@ MonoBehaviour:
     HealthGainPerClick: 0.3
     HeartbeatClicksTillNextLevel: 140
   _lightStats:
-  - MaxBrightness: 0.65
+  - MaxBrightness: 0.6
     BrightnessLoseRate: 0.9
     BrightnessGainPerClick: 0.3
     LightClicksTillNextLevel: 200
-  - MaxBrightness: 0.825
+  - MaxBrightness: 0.8
     BrightnessLoseRate: 1.5
     BrightnessGainPerClick: 0.4
     LightClicksTillNextLevel: 250
@@ -2965,12 +2965,13 @@ MonoBehaviour:
     BrightnessGainPerClick: 0.5
     LightClicksTillNextLevel: 300
   _heartbeatsSequenceDuration: 3
-  _firstHeartbeatBeginTime: 1.4
-  _firstHeartbeatEndTime: 2.1
-  _secondHeartbeatBeginTime: 2.1
-  _secondHeartbeatEndTime: 2.8
+  _firstHeartbeatBeginTime: 1.6
+  _firstHeartbeatEndTime: 2.2
+  _secondHeartbeatBeginTime: 2.3
+  _secondHeartbeatEndTime: 2.9
+  _heartbeatErrorTime: 0.3
   _fearMultiplierLerpCoef: 20
-  _fearLossRate: 0.4
+  _fearLossRate: 0.25
   _audioSource: {fileID: 82084641957391486}
   _enemaSqueezeAudioClips:
   - {fileID: 8300000, guid: 5aaac69ccff215c4395c086def11eb55, type: 3}
@@ -2988,8 +2989,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6c3085208c37148468fe1837c11a3384, type: 3}
   _heartbeatAudioClips:
   - {fileID: 8300000, guid: a3fea6f861bc03947a0c515f5243a92f, type: 3}
-  _firstHeartBeatTime: 1.7
-  _secondHeartBeatTime: 2.4
+  _firstHeartBeatTime: 1.9
+  _secondHeartBeatTime: 2.6
 --- !u!114 &114304071861904958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3040,21 +3041,21 @@ MonoBehaviour:
   _playerStatsController: {fileID: 114086085572350840}
   _playerAnimationController: {fileID: 114567436201317256}
   _flashlightSpotlight: {fileID: 108910726805026636}
-  _flashlightSpotlightMaxIntensity: 2
+  _flashlightSpotlightMaxIntensity: 1.8
   _flashlightSpotlightCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: -0.00076293945
       value: 0
-      inSlope: 0.8724662
-      outSlope: 0.8724662
+      inSlope: 0.51015127
+      outSlope: 0.51015127
       tangentMode: 0
     - serializedVersion: 2
       time: 1
       value: 1
-      inSlope: 1.2162074
-      outSlope: 1.2162074
+      inSlope: 1.678645
+      outSlope: 1.678645
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

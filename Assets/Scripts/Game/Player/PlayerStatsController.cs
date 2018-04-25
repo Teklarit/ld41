@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -31,6 +32,7 @@ public class PlayerStatsController : MonoBehaviour
     [SerializeField] private float _firstHeartbeatEndTime;
     [SerializeField] private float _secondHeartbeatBeginTime;
     [SerializeField] private float _secondHeartbeatEndTime;
+    [SerializeField] private float _heartbeatErrorTime;
     [SerializeField] private float _fearMultiplierLerpCoef;
     [SerializeField] private float _fearLossRate;
 
@@ -55,8 +57,10 @@ public class PlayerStatsController : MonoBehaviour
 
     private float _heartbeatTimePassed;
     private float _heartbeatSequencePassedPart;
-    private bool _heartbeatClickAvailable;
-    private bool _heartbeatClickPerformed;
+    private bool _firstHeartbeatClickAvailable;
+    private bool _secondHeartbeatClickAvailable;
+    private bool _firstHeartbeatClickPerformed;
+    private bool _secondHeartbeatClickPerformed;
 
     private bool _firstHeartbeatSoundPlayed;
     private bool _secondHeartbeatSoundPlayed;
@@ -81,8 +85,10 @@ public class PlayerStatsController : MonoBehaviour
 
         _heartbeatTimePassed = 0f;
         _heartbeatSequencePassedPart = 0f;
-        _heartbeatClickAvailable = false;
-        _heartbeatClickPerformed = false;
+        _firstHeartbeatClickAvailable = false;
+        _secondHeartbeatClickAvailable = false;
+        _firstHeartbeatClickPerformed = false;
+        _secondHeartbeatClickPerformed = false;
 
         _firstHeartbeatSoundPlayed = false;
         _secondHeartbeatSoundPlayed = false;
@@ -194,11 +200,6 @@ public class PlayerStatsController : MonoBehaviour
         get { return (LightProgress / _lightStats.Length) + ((1f / _lightStats.Length) * (_lightLevel + 1)); }
     }
 
-    public bool HeartbeatClickAvailable
-    {
-        get { return _heartbeatClickAvailable; }
-    }
-
     public float HeartbeatSequencePassedPart
     {
         get { return _heartbeatSequencePassedPart; }
@@ -244,9 +245,15 @@ public class PlayerStatsController : MonoBehaviour
 
     private bool HeartbeatOnTime()
     {
-        if (_heartbeatClickAvailable && !_heartbeatClickPerformed)
+        if (_firstHeartbeatClickAvailable && !_firstHeartbeatClickPerformed)
         {
-            _heartbeatClickPerformed = true;
+            _firstHeartbeatClickPerformed = true;
+            return true;
+        }
+
+        if (_secondHeartbeatClickAvailable && !_secondHeartbeatClickPerformed)
+        {
+            _secondHeartbeatClickPerformed = true;
             return true;
         }
 
@@ -270,14 +277,20 @@ public class PlayerStatsController : MonoBehaviour
         _heartbeatTimePassed += _fearMultiplier * dt;
         _heartbeatSequencePassedPart = Mathf.Clamp01(_heartbeatTimePassed / _heartbeatsSequenceDuration);
 
-        _heartbeatClickAvailable = (_heartbeatSequencePassedPart >= FirstHeartbeatBeginPart &&
-                                    _heartbeatSequencePassedPart <= FirstHeartbeatEndPart) ||
-                                    (_heartbeatSequencePassedPart >= SecondHeartbeatBeginPart &&
-                                     _heartbeatSequencePassedPart <= SecondHeartbeatEndPart);
+        _firstHeartbeatClickAvailable = _heartbeatSequencePassedPart >= FirstHeartbeatBeginPart - (_heartbeatErrorTime / _heartbeatsSequenceDuration) &&
+                                    _heartbeatSequencePassedPart <= FirstHeartbeatEndPart + (_heartbeatErrorTime / _heartbeatsSequenceDuration);
 
-        if (!_heartbeatClickAvailable)
+        _secondHeartbeatClickAvailable = _heartbeatSequencePassedPart >= SecondHeartbeatBeginPart - (_heartbeatErrorTime / _heartbeatsSequenceDuration) &&
+                                    _heartbeatSequencePassedPart <= SecondHeartbeatEndPart + (_heartbeatErrorTime / _heartbeatsSequenceDuration);
+
+        if (!_firstHeartbeatClickAvailable)
         {
-            _heartbeatClickPerformed = false;
+            _firstHeartbeatClickPerformed = false;
+        }
+
+        if (!_secondHeartbeatClickAvailable)
+        {
+            _secondHeartbeatClickPerformed = false;
         }
 
         if (!_firstHeartbeatSoundPlayed && _heartbeatTimePassed >= _firstHeartBeatTime)
